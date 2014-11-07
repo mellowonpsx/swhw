@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projects>
+    <project>
+        <id>0</id>
+        <title>boh</title>
+        <description>mah</description>
+        <keyword>k1</keyword>
+        <keyword>k2</keyword>
+        <keyword>k3</keyword>
+        <maxNumberOfStudent>5</maxNumberOfStudent>
+        <coordinatorId>0</coordinatorId>
+    </project>
+</projects>
+
+
+
+

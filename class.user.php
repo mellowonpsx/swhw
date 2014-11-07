@@ -25,8 +25,8 @@ class User
             $this->status = Constants::$USER_NOT_LOGGED;
             return;
         }
-        $xml = simplexml_load_file(Constants::$USER_FILENAME);
-        $result = $xml->xpath('/users/user[email="'.$username.'"][password="'.sha1($password).'"]');
+        $xmlDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        $result = $xmlDB->xpath('/users/user[email="'.$username.'"][password="'.sha1($password).'"]');
         if(sizeof($result) < 1) //if is less than 1 username or password are wrong, if is more, there will be a problem!
         {
             $this->status = Constants::$USER_NOT_LOGGED;

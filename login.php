@@ -7,7 +7,7 @@
     <body>
         <?php
             require_once 'utils.php';
-            global $user;
+            $user = getSessionUser();
             if($user)
             {
         ?>

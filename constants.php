@@ -10,7 +10,8 @@ require_once 'utils.php';
 
 class Constants
 {
-    static public $USER_FILENAME = "xml/users.xml";
+    static public $USERS_FILENAME = "xml/users.xml";
+    static public $PROJECTS_FILENAME = "xml/projects.xml";
     
     static public $USER_NOT_LOGGED = "USER_NOT_LOGGED";
     static public $USER_LOGGED = "USER_LOGGED";

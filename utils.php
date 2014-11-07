@@ -116,4 +116,4 @@ function document_error($data = NULL)
 }
 */
 
-$user = getSessionUser();
+//$user = getSessionUser();

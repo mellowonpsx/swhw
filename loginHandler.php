@@ -18,7 +18,7 @@ $user = new User($username,$password);
 if($user->isLogged())
 {
     setSessionUser($user); //set a session
-    echo "logged";
+    echo "logged"; //to do
 }
 else
 {
