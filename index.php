@@ -12,7 +12,6 @@ and open the template in the editor.
     <body>
         <?php
             require_once 'utils.php';
-            
         ?>
     </body>
 </html>
