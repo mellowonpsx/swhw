@@ -51,4 +51,14 @@ class Projects
         $freeSpot = $project->maxNumberOfStudent-Projects::projectUsedSpot($projectId);
         return $freeSpot;
     }
+    
+    public static function addUserToProject($projectId, $userId)
+    {
+        
+    }
+    
+    public static function removeUserFromProject($projectId, $userId)
+    {
+        
+    }
 }
