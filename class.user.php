@@ -58,6 +58,11 @@ class User
         return false;
     }
     
+    public function getId()
+    {
+        return $this->id;
+    }
+    
     /*public function isAdmin()
     {
         if($this->status === BD_USER_LOGGED && $this->getType() === BD_USER_TYPE_ADMIN)
