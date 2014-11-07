@@ -12,7 +12,7 @@ and open the template in the editor.
     <body>
         <?php
             require_once 'utils.php';
-            $user = new User("username","ciao");
+            
         ?>
     </body>
 </html>

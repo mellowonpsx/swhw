@@ -13,12 +13,10 @@ class User
     private $status;
     private $id;
     private $type;
-    private $user;
-    /*private $email;
+    private $email;
     private $firstName;
     private $lastName;
-    private $type;
-    private $projectId;*/
+    private $projectId;
     
     public function __construct($username = NULL, $password = NULL)
     {
@@ -35,23 +33,18 @@ class User
             return;
         }
         //else
-        //$this->user = $result[0];
-        $this->user = $result[0];
+        $user = $result[0];
+        //$this->user = $user;
         $this->id = $user->id->__toString();
         $this->type = $user->type->__toString();
-        /*
         $this->email = $user->email->__toString();
-        $this->firstName = $user->firstName->;
-        var_dump($this->firstName);
-        $this->lastName = $user->lastName->__toString();
-        var_dump($this->lastName);
+        $this->firstName = $user->firstName->__toString();        
+        $this->lastName = $user->lastName->__toString();        
         $this->type = $user->type->__toString();
-        var_dump($this->type);
-        if($this->type === Constants::USER_TYPE_STUDENT)
+        if($this->type === Constants::$USER_TYPE_STUDENT)
         {
             $this->projectId = $user->projectId->__toString();
-            var_dump($this->projectId);
-        }*/
+        }
         $this->status = Constants::$USER_LOGGED;
         return;
     }

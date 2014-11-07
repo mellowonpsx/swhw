@@ -114,3 +114,6 @@ function document_error($data = NULL)
     echo $data;
     exit();
 }
+*/
+
+$user = getSessionUser();
