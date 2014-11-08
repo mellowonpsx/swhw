@@ -73,7 +73,7 @@ class User
         //$usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
         global $usersDB;
         $result = $usersDB->xpath('/users/user[id="'.$this->id.'"]');
-        if(sizeof($result) < 1) //if is less than 1 username or password are wrong, if is more, there will be a problem!
+        if(sizeof($result) != 1) //if is less than 1 username or password are wrong, if is more, there will be a problem!
         {
             $this->status = Constants::$USER_NOT_LOGGED;
             return;
@@ -106,6 +106,43 @@ class User
         //else
         $user = $result[0];
         return $user;
+    }
+    
+    public static function userExist($userId)
+    {
+        global $usersDB;
+        $user = User::getUserById($userId);
+        if($user) //0 not exist, 1 exist
+        {
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    
+    public static function isStudent($userId)
+    {
+        $user = User::getUserById($userId);
+        if(!$user) //0 not student, 1 student
+        {
+            return 0;
+        }
+        //else
+        if($user->type != Constants::$USER_TYPE_STUDENT)
+        {
+            return 0;
+        }
+        //else
+        return 1;
+    }
+    
+    public static function listCoordinators()
+    {
+        global $usersDB;
+        $coordinators = $usersDB->xpath('/users/user[type="'.Constants::$USER_TYPE_COORDINATOR.'"]');
+        return $coordinators;
     }
     
     /*public function isAdmin()

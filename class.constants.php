@@ -13,6 +13,7 @@ class Constants
     public static $USERS_FILENAME = "xml/users.xml";
     public static $PROJECTS_FILENAME = "xml/projects.xml";
     public static $NOTIFICATIONS_FILENAME = "xml/notifications.xml";
+    public static $APPLICATIONS_FILENAME = "xml/applications.xml";
     
     public static $NOTIFICATION_READED = "readed";
     public static $NOTIFICATION_UNREADED = "unreaded";
@@ -24,7 +25,7 @@ class Constants
     public static $USER_NOT_EXIST = "USER_NOT_EXIST";
    
     public static $USER_TYPE_STUDENT = "Student";
-    public static $USER_TYPE_PROFESSOR = "Coordinator";
+    public static $USER_TYPE_COORDINATOR = "Coordinator";
     public static $USERS_NOPROJECT = "-1";
     /*
      * //document
