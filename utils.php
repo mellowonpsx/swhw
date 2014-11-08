@@ -13,6 +13,35 @@ $projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
 $notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
 $applicationsDB = simplexml_load_file(Constants::$APPLICATIONS_FILENAME);
 
+function updateDB($DB)
+{
+    global $usersDB;
+    global $projectsDB;
+    global $notificationsDB;
+    global $applicationsDB;
+    
+    if($DB == $usersDB)
+    {
+        $usersDB->saveXML(Constants::$USERS_FILENAME);
+        return;
+    }
+    if($DB == $projectsDB)
+    {
+        $projectsDB->saveXML(Constants::$PROJECTS_FILENAME);
+        return;
+    }
+    if($DB == $notificationsDB)
+    {
+        $notificationsDB->saveXML(Constants::$NOTIFICATIONS_FILENAME);
+        return;
+    }
+    if($DB == $applicationsDB)
+    {
+        $applicationsDB->saveXML(Constants::$APPLICATIONS_FILENAME);
+        return;
+    }
+}
+
 //start ob to prevent error output in json project
 //ob_start(); //disable_for_test
 

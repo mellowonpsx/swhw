@@ -5,19 +5,45 @@
     
     <user>
         <id>0</id>
-        <email>ciao</email>
-        <password>1e4e888ac66f8dd41e00c5a7ac36a32a9950d271</password>
-        <firstName>ser</firstName>
-        <lastName>gio</lastName>
+        <email>prof@mail.com</email>
+        <password>7234f5ec69da4e8d8b9c32ebf391dfc3125034ca</password>
+        <firstName>Charles</firstName>
+        <lastName>Goldfarb</lastName>
+        <type>Coordinator</type>
+    </user>
+    <user>
+        <id>1</id>
+        <email>raluca@mail.com</email>
+        <password>c02f320e7b3119050068e68fc229781e9e2d43c5</password>
+        <firstName>Raluca</firstName>
+        <lastName>Dimitriu</lastName>
         <type>Student</type>
         <projectId>-1</projectId>
     </user>
     <user>
-        <id>1</id>
-        <email>user2</email>
-        <password>1e4e888ac66f8dd41e00c5a7ac36a32a9950d271</password>
-        <firstName>ser</firstName>
-        <lastName>gio</lastName>
+        <id>2</id>
+        <email>dragos@mail.com</email>
+        <password>95dfbeab568f1284ce33e11c5464fb74df22687a</password>
+        <firstName>Dragos</firstName>
+        <lastName>Sogard</lastName>
+        <type>Student</type>
+        <projectId>-1</projectId>
+    </user>
+    <user>
+        <id>3</id>
+        <email>sergio@mail.com</email>
+        <password>499d56d41602ca66d1969bb436e112e4a4e168ba</password>
+        <firstName>Sergio</firstName>
+        <lastName>Oigres</lastName>
+        <type>Student</type>
+        <projectId>-1</projectId>
+    </user>
+    <user>
+        <id>4</id>
+        <email>vlad@mail.com</email>
+        <password>0221514871a217180019c6784f74ca8ff002ddab</password>
+        <firstName>Vlad</firstName>
+        <lastName>Dalv</lastName>
         <type>Student</type>
         <projectId>-1</projectId>
     </user>

@@ -2,12 +2,13 @@
 <projects>
     <project>
         <id>0</id>
-        <title>boh</title>
-        <description>mah</description>
-        <keyword>k1</keyword>
-        <keyword>k2</keyword>
-        <keyword>k3</keyword>
-        <maxNumberOfStudent>1</maxNumberOfStudent>
+        <title>Semantic Web Developing Tool</title>
+        <description>Create an Open Source Developing Tool for Semantic Web future classes.</description>
+        <keyword>Xml</keyword>
+        <keyword>Tool</keyword>
+        <keyword>Opensource</keyword>
+        <keyword>Java</keyword>
+        <maxNumberOfStudent>3</maxNumberOfStudent>
         <coordinatorId>0</coordinatorId>
     </project>
 </projects>

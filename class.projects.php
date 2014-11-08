@@ -39,10 +39,9 @@ class Projects
     
     public static function listAllCoordinatorProjects($userId)
     {
-        //$projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
         global $projectsDB;
-        $user = User::getUserById($userId);
-        //if($user!=)
+        $projectsCoordinated = $projectsDB->xpath('/projects/project[coordinatorId = "'.$userId.'"]');
+        return $projectsCoordinated;
     }
     
     public static function projectUsedSpot($projectId)
@@ -91,7 +90,8 @@ class Projects
         }
         //else
         $user->projectId = $projectId;
-        $usersDB->saveXML(Constants::$USERS_FILENAME);
+        //$usersDB->saveXML(Constants::$USERS_FILENAME);
+        updateDB($usersDB);
         return 0;
     }
     
@@ -113,7 +113,8 @@ class Projects
         }
         //else
         $user->projectId = Constants::$USERS_NOPROJECT;
-        $usersDB->saveXML(Constants::$USERS_FILENAME);
+        //$usersDB->saveXML(Constants::$USERS_FILENAME);
+        updateDB($usersDB);
         return 0;
     }
 }
