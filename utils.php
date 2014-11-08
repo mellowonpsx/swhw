@@ -11,6 +11,8 @@
 $usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
 $projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
 $notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
+$applicationsDB = simplexml_load_file(Constants::$APPLICATIONS_FILENAME);
+
 //start ob to prevent error output in json project
 //ob_start(); //disable_for_test
 

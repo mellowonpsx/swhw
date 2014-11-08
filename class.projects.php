@@ -85,7 +85,7 @@ class Projects
             return 2;
         }
         //else
-        if($user->type != Constants::$USER_TYPE_STUDENT)
+        if(!User::isStudent($userId))
         {
             return 3;
         }
