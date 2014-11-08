@@ -42,7 +42,8 @@ class Notifications
         $newUserId = $newNotification->addChild('userId', $userId);
         $newMessage = $newNotification->addChild('message', $message);
         $newReaded = $newNotification->addChild('readed', Constants::$NOTIFICATION_UNREADED);
-        $notificationsDB->saveXML(Constants::$NOTIFICATIONS_FILENAME);
+        //$notificationsDB->saveXML(Constants::$NOTIFICATIONS_FILENAME);
+        updateDB($notificationsDB);
     }
     
     public static function readedAllUserNotification($userId)
@@ -54,7 +55,8 @@ class Notifications
         {
             $notification->readed = Constants::$NOTIFICATION_READED;
         }
-        $notificationsDB->saveXML(Constants::$NOTIFICATIONS_FILENAME);
+        //$notificationsDB->saveXML(Constants::$NOTIFICATIONS_FILENAME);
+        updateDB($notificationsDB);
     }
     
     public static function readedNotification($id)
@@ -75,6 +77,7 @@ class Notifications
         }
         //else
         $notification[0]->readed = Constants::$NOTIFICATION_READED;
-        $notificationsDB->saveXML(Constants::$NOTIFICATIONS_FILENAME);
+        //$notificationsDB->saveXML(Constants::$NOTIFICATIONS_FILENAME);
+        updateDB($notificationsDB);
     }
 }

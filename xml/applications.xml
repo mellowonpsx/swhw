@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE applications [
+  <!ELEMENT applications (application+)>
+  <!ELEMENT application (studentId,projectId)>
+  <!ELEMENT studentId (#PCDATA)>
+  <!ELEMENT projectId (#PCDATA)>
+]>
 <applications>
-    <application>
-        <projectId>0</projectId>
-        <studentId>0</studentId>
-    </application>
 </applications>

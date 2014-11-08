@@ -5,16 +5,9 @@ require_once 'utils.php';
 $user = getSessionUser();
 if(!$user)
 {
-    die(Errors::$ERROR_90."");
+    die("You are not logged in");
     return 1;
 }
-//else
-if(!isset($_GET["projectId"]))
-{
-    die(Errors::$ERROR_90."_GET[\"projectId\"]");
-}
-
-
 
 /*
 require_once 'utils.php';
