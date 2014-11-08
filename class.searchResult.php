@@ -37,10 +37,15 @@ class SearchResult {
         $this->keywordsHits ++;
     }
    
-    public function setHeywordsHitPercentage(){
+    public function setKeywordsHitPercentage(){
         $this->keywordsHitPercentage = $this->keywordsHits / $this->numberOfPossibleKeywordsHits;
     }
     
+    public function getKeywordsHitPercentage() {
+        return $this->keywordsHitPercentage;
+    }
+
+
 
 
 

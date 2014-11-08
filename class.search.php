@@ -13,8 +13,8 @@
  */
 
 
-include './Model/SearchResult.php';
-include './class.user.php';
+//include './Model/SearchResult.php';
+//include './class.user.php';
 
 class Search {
     //put your code here
@@ -30,20 +30,26 @@ class Search {
         
         //$this->searchItem = $searchItem;
         $this->keywords = explode($searchItem, " ");
-        
+        $this->coordinators = User::listCoordinators();
     }
     
     function getSearchResults(){
         
+        $searchResults = array();
+        
         foreach ($this->coordinators as $cKey => $coordinator) {
+            
+            var_dump($cKey);
+            
+            $urlForCoordinators = "---";// TEMPORARY --- it should be initialized in constants.php
             
             $fullName = $coordinator->firstName." ".$coordinator->lastName;
             $url = $urlForCoordinators+"/"+$coordinator->id;
             
             $firstNameAsArray = explode($coordinator->firstName, " ");
             
-            $SearchResult = new SearchResult($fullName, $url);
-            $SearchResult ->setNumberOfPossibleKeywordsHits(sizeof($firstNameAsArray) + 1); // 1 means the lastName
+            $searchResult = new SearchResult($fullName, $url);
+            $searchResult ->setNumberOfPossibleKeywordsHits(sizeof($firstNameAsArray) + 1); // 1 means the lastName
             
             
             // Starting to search through coordinators
@@ -51,36 +57,48 @@ class Search {
             foreach ($this->keywords as $keyword) {
                 
                 if($coordinator->lastName === $keyword){     
-                    $SearchResult->incrementKeyWordsHits();      
+                    $searchResult->incrementKeyWordsHits();      
                 }
                 
                 
                 
                 foreach ($firstNameAsArray as $fName) {
                     if($fName === $keyword){     
-                        $SearchResult->incrementKeyWordsHits();      
+                        $searchResult->incrementKeyWordsHits();      
                     }              
                 }
                 
             } // end of checking every keyword
             
-            $SearchResult->
+            //$SearchResult->
                     
-            $SearchResult->setHeywordsHitPercentage();
+            $searchResult->setKeywordsHitPercentage();
             
+            if($searchResult->getKeywordsHitPercentage() > 0){
+                
+                array_push($searchResults, $searchResult);
+                
+            }
             
         }// end of itterating through coordinators
         
         
+        
+        
+        
+        
+        
         // Starting to search through projects
+        //NOT IMPLEMENTED YET
+        //TODO
         
-        foreach ($this->prjects as $pKey => $value) {
-            
-            
-            
-        }
+//        foreach ($this->prjects as $pKey => $value) {
+//            
+//            
+//            
+//        }
         
-        
+        return  $searchResults;
         
     }
     
