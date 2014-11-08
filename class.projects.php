@@ -16,7 +16,7 @@ class Projects
         $projects = array();
         foreach ($projectsDB as $project)
         {
-            array_push($projectsAvailable, $project);
+            array_push($projects, $project);
         }
         return $projects;
     }
