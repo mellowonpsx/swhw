@@ -12,7 +12,8 @@ class Projects
 {   
     public static function listAllProjects()
     {
-        $projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
+        //$projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
+        global $projectsDB;
         $projects = array();
         foreach ($projectsDB as $project)
         {
@@ -23,11 +24,12 @@ class Projects
     
     public static function listAviableProjects()
     {
-        $projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
+        //$projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
+        global $projectsDB;
         $projectsAvailable = array();
         foreach ($projectsDB as $project)
         {
-            if(Projects::projectUsedSpot($projectId) < $project->maxNumberOfStudent)
+            if(Projects::projectUsedSpot($project->id) < $project->maxNumberOfStudent)
             {
                 array_push($projectsAvailable, $project);
             }
@@ -35,9 +37,18 @@ class Projects
         return $projectsAvailable;
     }
     
+    public static function listAllCoordinatorProjects($userId)
+    {
+        //$projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
+        global $projectsDB;
+        $user = User::getUserById($userId);
+        //if($user!=)
+    }
+    
     public static function projectUsedSpot($projectId)
     {
-        $usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        //$usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        global $usersDB;
         $projectUsers = $usersDB->xpath('/users/user[projectId="'.$projectId.'"]');
         $userNumber = sizeof($projectUsers);
         return $userNumber;
@@ -45,11 +56,12 @@ class Projects
     
     public static function projectFreeSpot($projectId)
     {
-        $projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
+        //$projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
+        global $projectsDB;
         $result = $projectsDB->xpath('/projects/project[id = "'.$projectId.'"]');
-        if(sizeof($result) != 0)
+        if(sizeof($result) != 1)
         {
-            return null;
+            return 0;
         }
         //else
         $project = $result[0];
@@ -59,20 +71,20 @@ class Projects
     
     public static function addUserToProject($projectId, $userId)
     {
-        $projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
-        $usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
-        if(!Projects::projectUsedSpot($projectId)) // 0 freespot
+        //$projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
+        global $projectsDB;
+        //$usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        global $usersDB;
+        if(!Projects::projectFreeSpot($projectId)) // 0 freespot
         {
             return 1;
         }
-        //else
-        $result = $usersDB->xpath('/users/user[id="'.$userId.'"]');
-        if(sizeof($result) != 1)
+        $user = User::getUserById($userId);
+        if(!$user)
         {
             return 2;
         }
         //else
-        $user = $result[0];
         if($user->type != Constants::$USER_TYPE_STUDENT)
         {
             return 3;
@@ -85,15 +97,16 @@ class Projects
     
     public static function removeUserFromProject($projectId, $userId)
     {
-        $projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
-        $usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
-        $result = $usersDB->xpath('/users/user[id="'.$userId.'"]');
-        if(sizeof($result) != 1)
+        //$projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
+        global $projectsDB;
+        //$usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        global $usersDB;
+        $user = User::getUserById($userId);
+        if(!$user)
         {
             return 2;
         }
         //else
-        $user = $result[0];
         if($user->type != Constants::$USER_TYPE_STUDENT)
         {
             return 3;

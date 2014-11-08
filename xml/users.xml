@@ -16,6 +16,6 @@
         <firstName>ser</firstName>
         <lastName>gio</lastName>
         <type>Student</type>
-        <projectId>0</projectId>
+        <projectId>-1</projectId>
     </user>
 </users>

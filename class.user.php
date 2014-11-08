@@ -25,8 +25,9 @@ class User
             $this->status = Constants::$USER_NOT_LOGGED;
             return;
         }
-        $xmlDB = simplexml_load_file(Constants::$USERS_FILENAME);
-        $result = $xmlDB->xpath('/users/user[email="'.$username.'"][password="'.sha1($password).'"]');
+        //$xmlDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        global $usersDB;
+        $result = $usersDB->xpath('/users/user[email="'.$username.'"][password="'.sha1($password).'"]');
         if(sizeof($result) < 1) //if is less than 1 username or password are wrong, if is more, there will be a problem!
         {
             $this->status = Constants::$USER_NOT_LOGGED;
@@ -69,7 +70,8 @@ class User
         {
             return;
         }
-        $usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        //$usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        global $usersDB;
         $result = $usersDB->xpath('/users/user[id="'.$this->id.'"]');
         if(sizeof($result) < 1) //if is less than 1 username or password are wrong, if is more, there will be a problem!
         {
@@ -94,7 +96,8 @@ class User
     
     public static function getUserById($userId)
     {
-        $usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        //$usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        global $usersDB;
         $result = $usersDB->xpath('/users/user[id="'.$userId.'"]');
         if(sizeof($result) != 1)
         {

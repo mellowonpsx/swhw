@@ -12,7 +12,8 @@ class Notifications
 {   
     public static function getUserNotifications($userId, $unreadOnly = null)
     {
-        $notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
+        //$notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
+        global $notificationsDB;
         $userNotifications = $notificationsDB->xpath('/notifications/notification[userId="'.$userId.'"]');
         if(!$unreadOnly)
         {
@@ -32,7 +33,8 @@ class Notifications
     
     public static function addUserNotifications($userId, $message)
     {
-        $notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
+        //$notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
+        global $notificationsDB;
         $newXml = '<<id>'.uniqid().'</id><userId>'.$userId.'</userId><message>'.$message
                  .'</message><readed>'.Constants::$NOTIFICATION_UNREADED.'</readed>';
         $newNotification = $notificationsDB->addChild('notification');
@@ -45,7 +47,8 @@ class Notifications
     
     public static function readedAllUserNotification($userId)
     {
-        $notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
+        //$notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
+        global $notificationsDB;
         $userNotifications = $notificationsDB->xpath('/notifications/notification[userId="'.$userId.'"][readed="'.Constants::$NOTIFICATION_UNREADED.'"]');
         foreach ($userNotifications as $notification)
         {
@@ -56,7 +59,8 @@ class Notifications
     
     public static function readedNotification($id)
     {
-        $notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
+        //$notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
+        global $notificationsDB;
         /*$newXml = '<<id>'.uniqid().'</id><userId>'.$userId.'</userId><message>'.$message
                  .'</message><readed>'.Constants::$NOTIFICATION_UNREADED.'</readed>';
         $newNotification = $notificationsDB->addChild('notification');

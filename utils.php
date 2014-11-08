@@ -6,7 +6,14 @@
  * @author Leoni S.
  * @author Muresan V.
  */
-error_reporting(E_ALL); //test error reporting
+
+// global variables and includes
+$usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+$projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
+$notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
+//start ob to prevent error output in json project
+//ob_start(); //disable_for_test
+
 function __autoload($classname)
 {
     $filename =  strtolower("class.$classname.php");
@@ -20,12 +27,6 @@ function __autoload($classname)
         require_once $filename;
     }
 }
-
-require_once 'constants.php';
-require_once 'errors.php';
-
-//start ob to prevent error output
-//ob_start(); //disable_for_test
 
 function getSessionUser()
 {
@@ -67,6 +68,8 @@ function removeSession()
     $_SESSION["user"] = NULL;
     session_destroy();
 }
+
+
 
 /*function objectToArray($obj)
 {
