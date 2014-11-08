@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notifications>
+    <notification>
+        <id>0</id>
+        <userId>0</userId>
+        <message>stocazzo</message>
+        <readed>readed</readed>
+    </notification>
+    <notification>
+        <id>1</id>
+        <userId>0</userId>
+        <message>stocazzo2</message>
+        <readed>unreaded</readed>
+    </notification>
+</notifications>

@@ -7,7 +7,7 @@
         <keyword>k1</keyword>
         <keyword>k2</keyword>
         <keyword>k3</keyword>
-        <maxNumberOfStudent>5</maxNumberOfStudent>
+        <maxNumberOfStudent>1</maxNumberOfStudent>
         <coordinatorId>0</coordinatorId>
     </project>
 </projects>

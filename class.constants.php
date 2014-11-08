@@ -10,16 +10,22 @@ require_once 'utils.php';
 
 class Constants
 {
-    static public $USERS_FILENAME = "xml/users.xml";
-    static public $PROJECTS_FILENAME = "xml/projects.xml";
+    public static $USERS_FILENAME = "xml/users.xml";
+    public static $PROJECTS_FILENAME = "xml/projects.xml";
+    public static $NOTIFICATIONS_FILENAME = "xml/notifications.xml";
     
-    static public $USER_NOT_LOGGED = "USER_NOT_LOGGED";
-    static public $USER_LOGGED = "USER_LOGGED";
-    static public $USER_UNLOGGED = "USER_UNLOGGED";
-    static public $USER_DATA_NOT_SET = "DATA_NOT_SET";
-    static public $USER_NOT_EXIST = "USER_NOT_EXIST";
-    static public $USER_TYPE_STUDENT = "Student";
-    static public $USER_TYPE_PROFESSOR = "Coordinator";
+    public static $NOTIFICATION_READED = "readed";
+    public static $NOTIFICATION_UNREADED = "unreaded";
+    
+    public static $USER_NOT_LOGGED = "USER_NOT_LOGGED";
+    public static $USER_LOGGED = "USER_LOGGED";
+    public static $USER_UNLOGGED = "USER_UNLOGGED";
+    public static $USER_DATA_NOT_SET = "DATA_NOT_SET";
+    public static $USER_NOT_EXIST = "USER_NOT_EXIST";
+   
+    public static $USER_TYPE_STUDENT = "Student";
+    public static $USER_TYPE_PROFESSOR = "Coordinator";
+    public static $USERS_NOPROJECT = "-1";
     /*
      * //document
 //status
