@@ -15,6 +15,7 @@ and open the template in the editor.
             $user = getSessionUser();
             if($user)
             {
+                var_dump(Applications::listProjectApplication("0"));
                 //var_dump(Applications::listProjectApplication("10"));
                 //Applications::removeAllProjectApplication("10");
                 //var_dump(Applications::listProjectApplication("10"));
