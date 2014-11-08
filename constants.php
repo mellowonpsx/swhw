@@ -22,8 +22,10 @@ class Constants
     public static $USER_UNLOGGED = "USER_UNLOGGED";
     public static $USER_DATA_NOT_SET = "DATA_NOT_SET";
     public static $USER_NOT_EXIST = "USER_NOT_EXIST";
+   
     public static $USER_TYPE_STUDENT = "Student";
     public static $USER_TYPE_PROFESSOR = "Coordinator";
+    public static $USERS_NOPROJECT = "-1";
     /*
      * //document
 //status

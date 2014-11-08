@@ -6,7 +6,8 @@
         <password>1e4e888ac66f8dd41e00c5a7ac36a32a9950d271</password>
         <firstName>ser</firstName>
         <lastName>gio</lastName>
-        <type>Coordinator</type>
+        <type>Student</type>
+        <projectId>-1</projectId>
     </user>
     <user>
         <id>1</id>
@@ -18,4 +19,3 @@
         <projectId>0</projectId>
     </user>
 </users>
-

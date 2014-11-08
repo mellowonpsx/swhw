@@ -63,6 +63,48 @@ class User
         return $this->id;
     }
     
+    public function update()
+    {
+        if(!$this->isLogged())
+        {
+            return;
+        }
+        $usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        $result = $usersDB->xpath('/users/user[id="'.$this->id.'"]');
+        if(sizeof($result) < 1) //if is less than 1 username or password are wrong, if is more, there will be a problem!
+        {
+            $this->status = Constants::$USER_NOT_LOGGED;
+            return;
+        }
+        //else
+        $user = $result[0];
+        $this->id = $user->id->__toString();
+        $this->type = $user->type->__toString();
+        $this->email = $user->email->__toString();
+        $this->firstName = $user->firstName->__toString();        
+        $this->lastName = $user->lastName->__toString();        
+        $this->type = $user->type->__toString();
+        if($this->type === Constants::$USER_TYPE_STUDENT)
+        {
+            $this->projectId = $user->projectId->__toString();
+        }
+        $this->status = Constants::$USER_LOGGED;
+        return;
+    }
+    
+    public static function getUserById($userId)
+    {
+        $usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        $result = $usersDB->xpath('/users/user[id="'.$userId.'"]');
+        if(sizeof($result) != 1)
+        {
+            return null;
+        }
+        //else
+        $user = $result[0];
+        return $user;
+    }
+    
     /*public function isAdmin()
     {
         if($this->status === BD_USER_LOGGED && $this->getType() === BD_USER_TYPE_ADMIN)

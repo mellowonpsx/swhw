@@ -37,6 +37,7 @@ function getSessionUser()
     if(isset($_SESSION["user"]))
     {
         $user = $_SESSION["user"];
+        $user->update();
     }
     else
     {
@@ -52,6 +53,7 @@ function setSessionUser($user)
     {
         session_start() or die("Could not start session");
     }
+    $user->update();
     $_SESSION["user"] = $user;
 }
 
