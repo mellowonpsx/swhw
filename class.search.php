@@ -29,7 +29,7 @@ class Search {
     function __construct($searchItem) {
         
         //$this->searchItem = $searchItem;
-        $this->keywords = explode($searchItem, " ");
+        $this->keywords = explode( " " , $searchItem);
         $this->coordinators = User::listCoordinators();
     }
     
@@ -46,31 +46,33 @@ class Search {
             $fullName = $coordinator->firstName." ".$coordinator->lastName;
             $url = $urlForCoordinators+"/"+$coordinator->id;
             
-            $firstNameAsArray = explode($coordinator->firstName, " ");
+            $firstNameAsArray = explode( " " , $coordinator->firstName);
             
             $searchResult = new SearchResult($fullName, $url);
-            $searchResult ->setNumberOfPossibleKeywordsHits(sizeof($firstNameAsArray) + 1); // 1 means the lastName
+            //var_dump($firstNameAsArray);
+            $searchResult ->setNumberOfPossibleKeywordsHits((sizeof($firstNameAsArray) + 1)); // 1 means the lastName
             
             
             // Starting to search through coordinators
             
             foreach ($this->keywords as $keyword) {
+                //strcasecmp($coordinator->lastName, $keyword) ;
                 
-                if($coordinator->lastName === $keyword){     
+                if(strcasecmp($coordinator->lastName, $keyword) == 0 /*$coordinator->lastName === $keyword*/){     
+                    //echo 'ENTERED!!!';
                     $searchResult->incrementKeyWordsHits();      
                 }
                 
                 
-                
                 foreach ($firstNameAsArray as $fName) {
-                    if($fName === $keyword){     
+                    if(strcasecmp($fName, $keyword) == 0/*$fName === $keyword*/){     
                         $searchResult->incrementKeyWordsHits();      
                     }              
                 }
                 
             } // end of checking every keyword
             
-            //$SearchResult->
+           
                     
             $searchResult->setKeywordsHitPercentage();
             
