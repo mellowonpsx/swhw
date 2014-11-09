@@ -46,7 +46,7 @@
         }
         
         $stringData .= "</data>";
-        var_dump(htmlspecialchars($stringData));
+        //var_dump(htmlspecialchars($stringData));
         $data = simplexml_load_string($stringData);
         $xsl = simplexml_load_file(Constants::$XSLT_HOME);
         $xslt = new XSLTProcessor;
