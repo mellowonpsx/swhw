@@ -46,7 +46,7 @@ class SearchResult {
     }
 
 
-
+    //public function compare()
 
 
     

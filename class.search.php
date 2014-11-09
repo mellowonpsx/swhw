@@ -94,11 +94,35 @@ class Search {
         //NOT IMPLEMENTED YET
         //TODO
         
-//        foreach ($this->prjects as $pKey => $value) {
-//            
-//            
-//            
-//        }
+        foreach ($this->prjects as $pKey => $value) {
+            
+            
+            
+        }
+        
+        
+        
+        function compareSearchResult($a, $b)
+        {
+            //This is so that it will sort DESCENDING
+            $aux = $b->getKeywordsHitPercentage() - $a->getKeywordsHitPercentage();
+            //var_dump($aux);
+            
+            if ($aux < 0) {
+                $aux = -1;
+            } else if ($aux > 0) {
+                $aux = 1;
+            } else {
+                $aux = 0;
+            }
+
+            return ($aux);  //strcmp($a->name, $b->name);
+            
+            
+        }           
+
+        //var_dump($searchResults);
+        usort($searchResults, "compareSearchResult");
         
         return  $searchResults;
         

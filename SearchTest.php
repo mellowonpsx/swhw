@@ -14,7 +14,7 @@ require_once 'utils.php';
 
 //var_dump(($listCoordinators));
 
-$search = new Search("Vlad Bubu Muresan sever Sergio");
+$search = new Search(" Bubu Valentin vlad muresan muresan sever Sergio");
 $searchResults = $search->getSearchResults();
 
 var_dump($searchResults);
