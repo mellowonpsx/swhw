@@ -3,12 +3,12 @@ require_once 'utils.php';
 
 if(!isset($_POST["username"]))
 {
-    die(Errors::$ERROR_90."_POST[\"username\"]");
+    performError(Errors::$ERROR_90."_POST[\"username\"]");
 }
 
 if(!isset($_POST["password"]))
 {
-    die(Errors::$ERROR_90."_POST[\"username\"]");
+    performError(Errors::$ERROR_90."_POST[\"password\"]");
 }
 
 $username = htmlspecialchars($_POST["username"]);
@@ -18,9 +18,10 @@ $user = new User($username,$password);
 if($user->isLogged())
 {
     setSessionUser($user); //set a session
-    echo "logged"; //to do
+    header("Location: ".Constants::$PAGE_HOME);
+    exit();
 }
 else
 {
-    die(Errors::$ERROR_10);
+    performError(Errors::$ERROR_10, Constants::$PAGE_LOGIN);
 }

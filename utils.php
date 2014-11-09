@@ -64,7 +64,7 @@ function getSessionUser()
     $sessionId = session_id(); 
     if(empty($sessionId))
     {
-        session_start() or die("Could not start session");
+        session_start() or performError("Could not start session");
     }
     if(isset($_SESSION["user"]))
     {
@@ -83,7 +83,7 @@ function setSessionUser($user)
     $sessionId = session_id(); 
     if(empty($sessionId))
     {
-        session_start() or die("Could not start session");
+        session_start() or performError("Could not start session");
     }
     $user->update();
     $_SESSION["user"] = $user;
@@ -94,13 +94,39 @@ function removeSession()
     $sessionId = session_id(); 
     if(empty($sessionId))
     {
-        session_start() or die("Could not start session");
+        session_start() or performError("Could not start session");
     }
     $_SESSION["user"] = NULL;
     session_destroy();
 }
 
+function performError($message, $goTo = null)
+{
+    $xsl = simplexml_load_file(Constants::$XSLT_ERROR);
+    $xslt = new XSLTProcessor;
+    $xslt->importStyleSheet($xsl);
+    if(!$goTo)
+    {
+        $goTo = Constants::$PAGE_INDEX_HTML;
+    }
+    $xmlString = "<errors><error><message>".$message."</message></error><goto>".$goTo."</goto></errors>";
+    $errors = simplexml_load_string($xmlString);
+    die($xslt->transformToXML($errors));
+}
 
+function performXmlError($message)
+{
+    $xmlString = "<response><status>false</status><error>".$message."</error></response>";    
+    $errors = simplexml_load_string($xmlString);
+    die($errors->asXML());
+}
+
+function performXmlResponse($message)
+{
+    $xmlString = "<response><status>true</status><data>".$message."</data></response>";    
+    $response = simplexml_load_string($xmlString);
+    die($response->asXML());
+}
 
 /*function objectToArray($obj)
 {

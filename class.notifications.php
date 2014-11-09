@@ -10,7 +10,19 @@ require_once 'utils.php';
 
 class Notifications
 {   
-    public static function getUserNotifications($userId, $unreadOnly = null)
+    public static function getNotification($id)
+    {
+        global $notificationsDB;
+        $notification = $notificationsDB->xpath('/notifications/notification[id="'.$id.'"]');
+        if(sizeof($notification) != 1)
+        {
+            return null;
+        }
+        //else
+        return $notification[0];
+    }
+    
+    public static function getUserNotifications($userId, $unreadOnly = FALSE)
     {
         //$notificationsDB = simplexml_load_file(Constants::$NOTIFICATIONS_FILENAME);
         global $notificationsDB;
@@ -57,6 +69,7 @@ class Notifications
         }
         //$notificationsDB->saveXML(Constants::$NOTIFICATIONS_FILENAME);
         updateDB($notificationsDB);
+        return 1;
     }
     
     public static function readedNotification($id)
@@ -73,11 +86,12 @@ class Notifications
         $notification = $notificationsDB->xpath('/notifications/notification[id="'.$id.'"]');
         if(sizeof($notification) != 1)
         {
-            return;
+            return 1;
         }
         //else
         $notification[0]->readed = Constants::$NOTIFICATION_READED;
         //$notificationsDB->saveXML(Constants::$NOTIFICATIONS_FILENAME);
         updateDB($notificationsDB);
+        return 0;
     }
 }

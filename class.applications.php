@@ -42,6 +42,11 @@ class Applications
         return $applications;
     }
     
+    public static function numberApplication($projectId)
+    {
+        return sizeof(Applications::listProjectApplication($projectId));
+    }
+    
     public static function addApplication($userId, $projectId)
     {
         if(Applications::applicationExist($userId, $projectId))
