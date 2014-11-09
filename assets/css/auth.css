@@ -1,0 +1,335 @@
+/*! normalize.css v1.0.1 | MIT License | git.io/normalize */article,aside,details,figcaption,figure,footer,header,hgroup,nav,section,summary {
+    display: block;
+}
+
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+}
+
+button,html,input,select,textarea {
+    font-family: sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+a:focus {
+    outline: thin dotted;
+}
+
+a:active,a:hover {
+    outline: 0;
+}
+
+
+button,input,select,textarea {
+    font-size: 100%;
+    margin: 0;
+    vertical-align: baseline;
+    *vertical-align: middle;
+}
+
+button,input {
+    line-height: normal;
+}
+
+input[type=search]::-webkit-search-cancel-button,input[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none;
+}
+
+button::-moz-focus-inner,input::-moz-focus-inner {
+    border: 0;
+    padding: 0;
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    min-width: 1200px;
+    line-height: 1;
+    font-family: "Open Sans",Helvetica,Arial;
+    color: #3a3a3a;
+    font-size: 14px;
+    background: #E3E3E3;
+    background-repeat: no-repeat;
+    -webkit-font-smoothing: antialiased;
+}
+
+option {
+    color: #3a3a3a;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    font-weight: 400;
+    margin-top: 0;
+}
+
+
+
+input,textarea {
+    font-family: "Open Sans",Helvetica,Arial;
+    margin: 0;
+    padding: 5px;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: rgba(0,0,0,.1) -1px -1px 0 0;
+    outline: 0;
+}
+
+input:-webkit-autofill:first-line {
+    color: #777;
+}
+
+input:-webkit-autofill {
+    box-shadow: 0 0 0 1000px #fff inset;
+}
+
+
+select {
+    font-family: "Open Sans",Helvetica,Arial;
+    margin: 0;
+    border: 0;
+    padding: 5px;
+    border-radius: 3px;
+    box-shadow: rgba(0,0,0,.1) -1px -1px 0 0;
+}
+
+select.small-select {
+    padding: 2px;
+    display: inline-block;
+    width: auto;
+}
+
+input.error,select.error,textarea.error {
+    border: 1px solid red;
+}
+
+.disable-hover,.disable-hover * {
+    pointer-events: none!important;
+}
+
+.default-value {
+    color: #777;
+    font-style: italic;
+}
+
+.error {
+    color: red;
+}
+
+.label {
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.no-select {
+    user-select: none;
+    -o-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+}
+
+
+
+.button {
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    padding: 0 13px;
+    margin-right: 5px;
+    background: #ef621c;
+    color: #fff;
+    cursor: pointer;
+    font-family: Montserrat,Helvetica,Arial;
+    text-transform: uppercase;
+    font-size: 12px;
+    border: 0;
+    border-radius: 3px;
+    box-shadow: #e94e16 0 -2px 0 0 inset;
+}
+
+
+
+.button.selected {
+    background: #78AEDA;
+    box-shadow: #5898C9 0 -2px 0 0 inset;
+}
+
+.button.disabled {
+    background: #b1b1b1;
+    cursor: default;
+    box-shadow: #A0A0A0 0 -2px 0 0 inset;
+}
+
+
+.round-corners {
+    border-radius: 4px;
+}
+
+.row {
+    padding-top: 1px;
+    overflow: hidden;
+}
+
+.drop-down a {
+    color: #777;
+}
+
+.drop-down a:hover {
+    color: #ef621c;
+}
+
+#logo {
+    width: 120px;
+    height: 30px;
+    background: url(../images/logo.png) no-repeat left center;
+    display: block;
+}
+
+body.auth-page {
+    overflow: auto;
+    min-width: 500px;
+    background:#505D6E url(../images/body1.jpg) no-repeat center center fixed; 
+    background-size: cover;
+}
+
+.center-box {
+    top: 35%;
+    left: 50%;
+    margin-left: -217px;
+    margin-top: -175px;
+    width: 415px;
+    padding: 10px;
+    background: #fff;
+    position: relative;
+}
+
+.auth-page .error {
+    text-align: center;
+    line-height: 1.5;
+}
+
+.center-box.login {
+    margin-top: -175px;
+}
+
+.center-box.share-auth h2 {
+    font-size: 20px;
+}
+
+.center-box.request-password-reset {
+    margin-top: -138px;
+}
+
+.center-box.signup {
+    margin-top: -210px;
+}
+
+.center-box.password-reset-reqested {
+    margin-top: -168px;
+}
+
+.center-box h2 {
+    border-bottom: 0;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.center-box p {
+    line-height: 1.5;
+}
+
+.center-box .frame {
+    padding: 40px 40px 30px;
+    background: #eeede0;
+}
+
+.center-box #logo {
+    margin: 0 auto 35px;
+}
+
+.center-box .row {
+    padding-bottom: 19px;
+}
+
+.center-box .row .right {
+    float: right;
+    width: 255px;
+}
+
+.center-box label {
+    display: block;
+    float: left;
+    width: 75px;
+    height: 30px;
+    line-height: 30px;
+    font-family: Homenaje,Helvetica,Arial;
+    font-size: 16px;
+    color: #ef621c;
+    text-transform: uppercase;
+}
+
+.center-box label.confirm-password {
+    line-height: 100%;
+}
+
+.center-box input[type=password],.center-box input[type=text] {
+    width: 245px;
+    float: right;
+    border: 0;
+    color: #777;
+}
+
+.center-box .forgot-password {
+    padding-top: 5px;
+}
+
+.center-box .forgot-password a {
+    color: #ef621c;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.center-box .button {
+    display: block;
+    float: left;
+}
+
+.center-box .register-link {
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    padding-left: 17px;
+    width: 150px;
+}
+
+.center-box .register-link span {
+    padding-right: 12px;
+}
+
+.center-box .register-link a {
+    color: #ef621c;
+    text-decoration: underline;
+}
