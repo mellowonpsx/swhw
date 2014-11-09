@@ -16,7 +16,7 @@ class SearchResult {
     
     private $name;
     private $url;
-    //private $extraContent;
+    private $extraContent;
     
     private $numberOfPossibleKeywordsHits; // 
     private $keywordsHits ;
@@ -35,13 +35,32 @@ class SearchResult {
     
     public function incrementKeyWordsHits(){
         $this->keywordsHits ++;
+        //var_dump($this->keywordsHits);
     }
    
     public function setKeywordsHitPercentage(){
         $this->keywordsHitPercentage = $this->keywordsHits / $this->numberOfPossibleKeywordsHits;
     }
     
+    public function setExtraContent($extraContent) {
+        $this->extraContent = $extraContent;
+    }
+
+    public function getName() {
+        return $this->name;
+    }
+
+    public function getUrl() {
+        return $this->url;
+    }
+
+    public function getExtraContent() {
+        return $this->extraContent;
+    }
+
+    
     public function getKeywordsHitPercentage() {
+        
         return $this->keywordsHitPercentage;
     }
 
