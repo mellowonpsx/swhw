@@ -1,80 +1,116 @@
 <?php
-    require_once 'utils.php';
-    $user = getSessionUser();
-    if(!$user)
+require_once 'utils.php';
+$user = getSessionUser();
+if(!$user)
+{
+    performError(Errors::$ERROR_80, Constants::$PAGE_LOGIN);
+}
+//else
+$stringData = "<data>\n";
+$notifications = Notifications::getUserNotifications($user->getId(), TRUE);
+if($notifications) //more than one message
+{
+    $stringData .= "<notifications>\n";
+    foreach($notifications as $notification)
     {
-        performError(Errors::$ERROR_80, Constants::$PAGE_LOGIN);
+        $stringData .= "<notification>\n";
+        $stringData .= "<id>".$notification->id."</id>\n";
+        $stringData .= "<message>".$notification->message."</message>\n";
+        $stringData .= "</notification>\n";
     }
-    //else
-    if(!User::isStudent($user->getId()))
+    $stringData .= "</notifications>\n";
+}
+
+if(User::isStudent($user->getId()))
+{
+    $studentProject = Projects::getUserProject($user->getId());
+    if($studentProject)
     {
-        $stringData = "<data>\n";
-        $notifications = Notifications::getUserNotifications($user->getId(), TRUE);
-        if($notifications) //more than one message
+        $stringData .= "<studentProject>\n";
+        $stringData .= "<project>\n";
+        $stringData .= "<id>".$studentProject->id."</id>\n";
+        $stringData .= "<coordinator>".$studentProject->coordinatorId."</coordinator>\n";
+        $stringData .= "<title>".$studentProject->title."</title>\n";
+        $stringData .= "<description>".$studentProject->description."</description>\n";
+        foreach($studentProject->keyword as $keyword)
         {
-            $stringData .= "<notifications>\n";
-            foreach($notifications as $notification)
-            {
-                $stringData .= "<notification>\n";
-                $stringData .= "<id>".$notification->id."</id>\n";
-                $stringData .= "<message>".$notification->message."</message>\n";
-                $stringData .= "</notification>\n";
-            }
-            $stringData .= "</notifications>\n";
+            $stringData .= "<keyword>".$keyword."</keyword>\n";
         }
-        
-        $projects = Projects::listAllCoordinatorProjects($user->getId());
-        if($projects)
+        $stringData .= "<numberOfStudent>".Projects::projectUsedSpot($studentProject->id)."</numberOfStudent>\n";
+        $stringData .= "<maxNumberOfStudent>".$studentProject->maxNumberOfStudent."</maxNumberOfStudent>\n";
+        $stringData .= "<numberOfApplication>".Applications::numberApplication($studentProject->id)."</numberOfApplication>\n";
+        $stringData .= "</project>\n";
+        $stringData .= "</studentProject>\n";
+    }
+    //application
+    $studentApplications = Applications::listUserApplication($user->getId());
+    if($studentApplications)
+    {
+        $stringData .= "<studentApplications>\n";
+        foreach($studentApplications as $application)
         {
-            $stringData .= "<projects>\n";
-            foreach($projects as $project)
+            $project = Projects::getProjectById($application->projectId);
+            $stringData .= "<project>\n";
+            $stringData .= "<id>".$project->id."</id>\n";
+            //show more information about coordinator?
+            $coordinator = User::getUserById($project->coordinatorId);
+            $stringData .= "<coordinator>".$coordinator->lastName."</coordinator>\n";
+            // end show coordinator
+            $stringData .= "<title>".$project->title."</title>\n";
+            $stringData .= "<description>".$project->description."</description>\n";
+            foreach($project->keyword as $keyword)
             {
-                $stringData .= "<project>\n";
-                $stringData .= "<id>".$project->id."</id>\n";
-                $stringData .= "<title>".$project->title."</title>\n";
-                $stringData .= "<description>".$project->description."</description>\n";
-                foreach($project->keyword as $keyword)
-                {
-                    $stringData .= "<keyword>".$keyword."</keyword>\n";
-                }
-                $stringData .= "<numberOfStudent>".Projects::projectUsedSpot($project->id)."</numberOfStudent>\n";
-                $stringData .= "<maxNumberOfStudent>".$project->maxNumberOfStudent."</maxNumberOfStudent>\n";
-                $stringData .= "<numberOfApplication>".Applications::numberApplication($project->id)."</numberOfApplication>\n";
-                $stringData .= "</project>\n";
+                $stringData .= "<keyword>".$keyword."</keyword>\n";
             }
-            $stringData .= "</projects>\n";
+            $stringData .= "<numberOfStudent>".Projects::projectUsedSpot($project->id)."</numberOfStudent>\n";
+            $stringData .= "<maxNumberOfStudent>".$project->maxNumberOfStudent."</maxNumberOfStudent>\n";
+            $stringData .= "<numberOfApplication>".Applications::numberApplication($project->id)."</numberOfApplication>\n";
+            $stringData .= "</project>\n";
         }
-        
-        $stringData .= "</data>";
-        //var_dump(htmlspecialchars($stringData));
-        $data = simplexml_load_string($stringData);
-        $xsl = simplexml_load_file(Constants::$XSLT_HOME);
-        $xslt = new XSLTProcessor;
-        $xslt->importStyleSheet($xsl);
-        die($xslt->transformToXML($data));
-        //var_dump($data);
-        //die();
-        
-        /*$xsl = simplexml_load_file(Constants::$XSLT_HOME);
-        $xslt = new XSLTProcessor;
-        $xslt->importStyleSheet($xsl);
-        die($xslt->transformToXML($notifications[0]));
-        exit();*/
-        /*
-        $xmlString = "<errors><error><message>".$message."</message></error><goto>".$goTo."</goto></errors>";
-        $errors = simplexml_load_string($xmlString);
-        die($xslt->transformToXML($errors));*/
+        $stringData .= "</studentApplications>\n";
     }
     
-    //$response = stripslashes(file_get_contents(Constants::$PAGE_PROJECT_HTML));
-    //    echo $response;
-    //case student
-        //show notification area
-        //show searchbox
-        //show your project
-        //show your application
-    //case professor
-        //notification
-        //show searchbox
-        //owned project
-    
+}
+else//!User::isStudent($user->getId()))
+{
+    $projects = Projects::listAllCoordinatorProjects($user->getId());
+    if($projects)
+    {
+        $stringData .= "<projects>\n";
+        foreach($projects as $project)
+        {
+            $stringData .= "<project>\n";
+            $stringData .= "<id>".$project->id."</id>\n";
+            $stringData .= "<title>".$project->title."</title>\n";
+            $stringData .= "<description>".$project->description."</description>\n";
+            foreach($project->keyword as $keyword)
+            {
+                $stringData .= "<keyword>".$keyword."</keyword>\n";
+            }
+            $stringData .= "<numberOfStudent>".Projects::projectUsedSpot($project->id)."</numberOfStudent>\n";
+            $stringData .= "<maxNumberOfStudent>".$project->maxNumberOfStudent."</maxNumberOfStudent>\n";
+            $stringData .= "<numberOfApplication>".Applications::numberApplication($project->id)."</numberOfApplication>\n";
+            $stringData .= "</project>\n";
+        }
+        $stringData .= "</projects>\n";
+    }
+}
+//var_dump($projects);
+
+$stringData .= "</data>";
+//var_dump(htmlspecialchars($stringData));
+$data = simplexml_load_string($stringData);
+$xsl = simplexml_load_file(Constants::$XSLT_HOME);
+$xslt = new XSLTProcessor;
+$xslt->importStyleSheet($xsl);
+die($xslt->transformToXML($data));
+
+//case student
+//show notification area
+//show searchbox
+//show your project
+//show your application
+//case professor
+//notification
+//show searchbox
+//owned project

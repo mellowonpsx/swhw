@@ -33,7 +33,7 @@
         <firstName>Sergio</firstName>
         <lastName>Oigres</lastName>
         <type>Student</type>
-        <projectId>-1</projectId>
+        <projectId>0</projectId>
     </user>
     <user>
         <id>4</id>

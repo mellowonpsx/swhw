@@ -95,6 +95,31 @@ class Projects
         return 0;
     }
     
+    public static function getUserProject($userId)
+    {
+        $user = User::getUserById($userId);
+        if(!$user)
+        {
+            return null;
+        }
+        if($user->projectId == Constants::$USERS_NOPROJECT)
+        {
+            return null;
+        }
+        return Projects::getProjectById($user->projectId);
+    }
+
+    public static function getProjectById($projectId)
+    {
+        global $projectsDB;
+        $project = $projectsDB->xpath('/projects/project[id = "'.$projectId.'"]');
+        if(sizeof($project) != 1)
+        {
+            return null;
+        }
+        return $project[0];
+    }
+    
     public static function removeUserFromProject($projectId, $userId)
     {
         //$projectsDB = simplexml_load_file(Constants::$PROJECTS_FILENAME);
