@@ -1,64 +1,46 @@
 <?php
 require_once 'utils.php';
-
-$res = Projects::listAviableProjects();
-var_dump($res);
-
-/*$category_array = array();
-if(isset($_POST["category"]))
-{
-    global $db;
-    $json_array = json_decode($_POST["category"]);
-    foreach ($json_array as $category)
-    {
-        $category_array[$category->id] = objectToArray($category);
-    }
-}//get category from POST
-
-$pageNumber = 1;
-if(isset($_POST["pageNumber"]))
-{
-    $pageNumber = $db->escape(filter_var( $_POST["pageNumber"], FILTER_SANITIZE_NUMBER_INT));
-}
-
-$searchQuery = NULL;
-if(isset($_POST["searchQuery"]))
-{
-    $searchQuery = $db->escape(filter_var( $_POST["searchQuery"], FILTER_SANITIZE_STRING));
-}
-
-$yearLimit = NULL;
-if(isset($_POST["yearLimit"]))
-{
-    $yearLimit = $db->escape(filter_var( $_POST["yearLimit"], FILTER_SANITIZE_NUMBER_INT));
-}
-
-$documentPerPage = $config->getParam("documentPerPage");
-$startLimit = ($pageNumber-1)*$documentPerPage;
-$endLimit = $pageNumber*$documentPerPage;
-
 $user = getSessionUser();
-if($user != NULL)
+if(!$user)
 {
-    if($user->isAdmin())
-    {
-        //admin shows all
-        //echo json_encode(Document::getDocumentList(0, 1000, Category::getCategoryList(), true, NULL, NULL));
-        //echo json_encode(Document::getDocumentList(0, 1000, $category_array, true, NULL, NULL));
-        $result_array = Document::getDocumentList($startLimit, $endLimit, $category_array, true, $user, $yearLimit, $searchQuery);
-    }
-    else //logged show public and his his own file 
-    {
-        //echo json_encode(Document::getDocumentList(0, 1000, Category::getCategoryList(), false, $user->getUserId(), NULL));
-        //echo json_encode(Document::getDocumentList(0, 1000, $category_array, false, $user->getUserId(), NULL));
-        $result_array = Document::getDocumentList($startLimit, $endLimit, $category_array, false, $user, $yearLimit, $searchQuery);
-    }
+    performError(Errors::$ERROR_80, Constants::$PAGE_LOGIN);
 }
-else //user = null => not logged (?)
+//else
+$stringData = "<data>\n";
+$projects = Projects::listAviableProjects();
+if($projects)
 {
-    //echo json_encode(Document::getDocumentList(0, 1000, Category::getCategoryList(), false, NULL, NULL));
-    //echo json_encode(Document::getDocumentList(0, 1000, $category_array, false, NULL, NULL));
-    $result_array = Document::getDocumentList($startLimit, $endLimit, $category_array, false, NULL, $yearLimit, $searchQuery);
+    $stringData .= "<projects>\n";
+    foreach($projects as $project)
+    {
+        $stringData .= "<project>\n";
+        $stringData .= "<id>".$project->id."</id>\n";
+        //show more information about coordinator?
+        $coordinator = User::getUserById($project->coordinatorId);
+        $stringData .= "<coordinator>".$coordinator->lastName.", ".$coordinator->firstName."</coordinator>\n";
+        // end show coordinator
+        $stringData .= "<title>".$project->title."</title>\n";
+        $stringData .= "<description>".$project->description."</description>\n";
+        foreach($project->keyword as $keyword)
+        {
+            $stringData .= "<keyword>".$keyword."</keyword>\n";
+        }
+        $stringData .= "<numberOfStudent>".Projects::projectUsedSpot($project->id)."</numberOfStudent>\n";
+        $stringData .= "<maxNumberOfStudent>".$project->maxNumberOfStudent."</maxNumberOfStudent>\n";
+        $stringData .= "<numberOfApplication>".Applications::numberApplication($project->id)."</numberOfApplication>\n";
+        $freeSpot = Projects::projectFreeSpot($project->id);
+        if($freeSpot) // != 0
+        {
+            $stringData .= "<projectAvailable />\n";    
+        }
+        $stringData .= "</project>\n";
+    }
+    $stringData .= "</projects>\n";
 }
-echo json_ok($result_array);
-exit();*/
+$stringData .= "</data>";
+//var_dump(htmlspecialchars($stringData));
+$data = simplexml_load_string($stringData);
+$xsl = simplexml_load_file(Constants::$XSLT_HOME);
+$xslt = new XSLTProcessor;
+$xslt->importStyleSheet($xsl);
+die($xslt->transformToXML($data));

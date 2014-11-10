@@ -7,7 +7,7 @@ if(!$user)
 }
 //else
 $stringData = "<data>\n";
-$projects = Projects::listAllProjects($user->getId());
+$projects = Projects::listAllProjects();
 if($projects)
 {
     $stringData .= "<projects>\n";
