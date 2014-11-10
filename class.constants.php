@@ -31,9 +31,9 @@ class Constants
     public static $PAGE_LOGIN = "login.php";
     public static $PAGE_HOME = "home.php";
     
-    public static $XSLT_ERROR = "xls/error.xls";
-    public static $XSLT_HOME = "xls/home.xls";
-    //public static $XSLT_COORDINATOR_HOME = "xsl/coordinatorHome.xls";
+    public static $XSLT_ERROR = "xsl/error.xsl";
+    public static $XSLT_HOME = "xsl/home.xsl";
+    //public static $XSLT_COORDINATOR_HOME = "xsl/coordinatorHome.xsl";
     
     public static $PAGE_LOGIN_HTML = "login.html";
     public static $PAGE_INDEX_HTML = "index.html";
