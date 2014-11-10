@@ -23,6 +23,7 @@
             <!-- in student home page we show personal project, if exist, or applications -->
             <xsl:if test="studentProject">
             <div id="student-project-area">
+                student project
                 <ul>
                 <xsl:for-each select="studentProject/project">
                     <li>
@@ -44,6 +45,7 @@
             </xsl:if>
             <xsl:if test="studentApplications">
             <div id="student-application-area">
+                student application
                 <ul>
                 <xsl:for-each select="studentApplications/project">
                     <li>
@@ -66,6 +68,7 @@
             <!-- in coordinator home page we show project he coordinate -->
             <xsl:if test="projects">
             <div id="professor-project-area">
+                professor project
                 <ul>
                 <xsl:for-each select="projects/project">
                     <li>
@@ -83,11 +86,6 @@
                 </xsl:for-each>
                 </ul>
             </div>
-            </xsl:if>
-            <xsl:if test="not(projects)">
-                <div>
-                    Sorry, you have no project
-                </div>
             </xsl:if>
         </body>
     </html>

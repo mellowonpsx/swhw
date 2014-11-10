@@ -30,7 +30,7 @@ if(User::isStudent($user->getId()))
         $stringData .= "<project>\n";
         $stringData .= "<id>".$studentProject->id."</id>\n";
         //show more information about coordinator?
-        $coordinator = User::getUserById($project->coordinatorId);
+        $coordinator = User::getUserById($studentProject->coordinatorId);
         $stringData .= "<coordinator>".$coordinator->lastName."</coordinator>\n";
         // end show coordinator
         $stringData .= "<title>".$studentProject->title."</title>\n";

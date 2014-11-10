@@ -17,7 +17,7 @@
         <description>Lorem ipsum ipsum lorem lorem</description>
         <keyword>Lorem</keyword>
         <keyword>Ipsum</keyword>
-        <maxNumberOfStudent>10</maxNumberOfStudent>
+        <maxNumberOfStudent>0</maxNumberOfStudent>
         <coordinatorId>0</coordinatorId>
     </project>
     <project>

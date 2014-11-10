@@ -13,12 +13,13 @@
             <div id="research-result">
                 <ul>
                 <xsl:for-each select="projects/project">
-                    <xsl:if test="projectAvailable">
+<!--                    <xsl:if test="projectAvailable">
                     <li class="available">
                     </xsl:if>
                     <xsl:if test="not(projectAvailable)">
                     <li>
-                    </xsl:if>
+                    </xsl:if>-->
+                    <li>
                         <xsl:variable name="projectId" select="id"/>
                         <xsl:value-of select="coordinator"/>
                         <xsl:value-of select="title"/>

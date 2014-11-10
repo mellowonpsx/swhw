@@ -1,5 +1,6 @@
 <?php
 require_once 'utils.php';
+
 $user = getSessionUser();
 if(!$user)
 {
@@ -42,17 +43,72 @@ foreach($project->keyword as $keyword)
 $stringData .= "<numberOfStudent>".Projects::projectUsedSpot($project->id)."</numberOfStudent>\n";
 $stringData .= "<maxNumberOfStudent>".$project->maxNumberOfStudent."</maxNumberOfStudent>\n";
 $stringData .= "<numberOfApplication>".Applications::numberApplication($project->id)."</numberOfApplication>\n";
-$freeSpot = Projects::projectFreeSpot($project->id);
-if($freeSpot) // != 0
+if(!User::isStudent($user->getId()))
 {
-    $stringData .= "<projectAvailable />\n";    
+    $stringData .="<applications>";
+    $applications = Applications::listProjectApplication($project->id);
+    foreach($applications as $application)
+    {
+        $stringData .="<application>";
+        $stringData .= "<studentId>".$application->studentId."</studentId>";
+        $thisUser = User::getUserById($application->studentId);
+        if(!$thisUser) //this user = null
+        {
+            continue;
+        }
+        $stringData .= "<studentName>".$thisUser->lastName.", ".$thisUser->firstName."</studentName>";
+        $stringData .="</application>";
+    }
+    $stringData .="</applications>";
+}
+if(User::isStudent($user->getId()))
+{
+    //case 4: project not applied
+    $stringData .="<studentData>";
+    if(Projects::getUserProject($user->getId()))
+    {
+        $stringData .="<studentMessage>asd</studentMessage>";
+        echo "gia con progetto<br/><br/>";
+    }
+    else if(Applications::applicationExist ($user->getId(),$project->id))
+    {
+        $stringData .="<studentMessage>asd</studentMessage>";
+        echo "gia applicato<br/><br/>";
+    } else if(!Projects::projectFreeSpot($project->id))
+    {
+        $stringData .="<studentMessage>asd</studentMessage>";
+        echo "progetto pieno<br/><br/>";
+    }
+    else
+    {
+        $stringData .="<studentMessage>asd</studentMessage>";
+        $stringData .="<available/>";
+        echo "progetto registrabile<br/><br/>";
+    }
+    $stringData .="</studentData>";
+    /*
+    $stringData .="<applications>";
+    $applications = Applications::listProjectApplication($project->id);
+    foreach($applications as $application)
+    {
+        $stringData .="<application>";
+        $stringData .= "<studentId>".$application->studentId."</studentId>";
+        $thisUser = User::getUserById($application->studentId);
+        if(!$thisUser) //this user = null
+        {
+            continue;
+        }
+        $stringData .= "<studentName>".$thisUser->lastName.", ".$thisUser->firstName."</studentName>";
+        $stringData .="</application>";
+    }
+    $stringData .="</applications>";*/
 }
 $stringData .= "</project>\n";
 $stringData .= "</projects>\n";
 $stringData .= "</data>";
-//var_dump(htmlspecialchars($stringData));
+var_dump(htmlspecialchars($stringData));
 $data = simplexml_load_string($stringData);
-$xsl = simplexml_load_file(Constants::$XSLT_HOME);
+$xsl = simplexml_load_file(Constants::$XSLT_PROJECT);
 $xslt = new XSLTProcessor;
 $xslt->importStyleSheet($xsl);
 die($xslt->transformToXML($data));

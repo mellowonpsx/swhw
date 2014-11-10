@@ -33,6 +33,8 @@ class Constants
     
     public static $XSLT_ERROR = "xsl/error.xsl";
     public static $XSLT_HOME = "xsl/home.xsl";
+    public static $XSLT_PROJECTS_LIST = "xsl/projects.xsl";
+    public static $XSLT_PROJECT = "xsl/project.xsl";
     //public static $XSLT_COORDINATOR_HOME = "xsl/coordinatorHome.xsl";
     
     public static $PAGE_LOGIN_HTML = "login.html";
