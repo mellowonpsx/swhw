@@ -28,10 +28,10 @@ class Applications
         return $application[0];
     }
     
-    public static function listUserApplication($userId)
+    public static function listUserApplication($studentId)
     {
         global $applicationsDB;
-        $applications = $applicationsDB->xpath('/applications/application[studentId="'.$userId.'"]');
+        $applications = $applicationsDB->xpath('/applications/application[studentId="'.$studentId.'"]');
         return $applications;
     }
     
@@ -40,6 +40,11 @@ class Applications
         global $applicationsDB;
         $applications = $applicationsDB->xpath('/applications/application[projectId="'.$projectId.'"]');
         return $applications;
+    }
+    
+    public static function numberApplication($projectId)
+    {
+        return sizeof(Applications::listProjectApplication($projectId));
     }
     
     public static function addApplication($userId, $projectId)
@@ -55,12 +60,13 @@ class Applications
         }
         if(!Projects::projectFreeSpot($projectId)) // 0 freespot
         {
-            return 3; //not eneught project slot
+            return 3; //not eneught project slot or project not exist
         }
         global $applicationsDB;
         $newApplication = $applicationsDB->addChild('application');
         $newStudentId =  $newApplication->addChild('studentId',$userId);
         $newProjectId =  $newApplication->addChild('projectId',$projectId);
+        updateDB($applicationsDB);
         return 0;
     }
     

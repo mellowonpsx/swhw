@@ -27,6 +27,17 @@ class Constants
     public static $USER_TYPE_STUDENT = "Student";
     public static $USER_TYPE_COORDINATOR = "Coordinator";
     public static $USERS_NOPROJECT = "-1";
+    
+    public static $PAGE_LOGIN = "login.php";
+    public static $PAGE_HOME = "home.php";
+    
+    public static $XSLT_ERROR = "xls/error.xls";
+    public static $XSLT_HOME = "xls/home.xls";
+    //public static $XSLT_COORDINATOR_HOME = "xsl/coordinatorHome.xls";
+    
+    public static $PAGE_LOGIN_HTML = "login.html";
+    public static $PAGE_INDEX_HTML = "index.html";
+    public static $PAGE_PROJECT_HTML = "projects.html";
     /*
      * //document
 //status

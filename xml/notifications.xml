@@ -1,3 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <notifications>
-</notifications>
+     <notification>
+        <id>0</id>
+        <userId>0</userId>
+        <message>stocazzo</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>1</id>
+        <userId>0</userId>
+        <message>stocazzo2</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2</id>
+        <userId>1</userId>
+        <message>stocazzo3</message>
+        <readed>unreaded</readed>
+    </notification>
+<notification><id>2014-11-10_10:12:47_5460818f6cc5e</id><userId>1</userId><message>You applied for the project: Semantic Web Developing Tool</message><readed>readed</readed></notification><notification><id>2014-11-10_10:12:47_5460818f6cd63</id><userId>0</userId><message>Dimitriu applied for the project: Semantic Web Developing Tool</message><readed>unreaded</readed></notification><notification><id>2014-11-10_10:12:50_54608192075cf</id><userId>1</userId><message>You applied for the project: Semantic Web Developing Tool</message><readed>readed</readed></notification><notification><id>2014-11-10_10:12:50_54608192076b4</id><userId>0</userId><message>Dimitriu applied for the project: Semantic Web Developing Tool</message><readed>unreaded</readed></notification><notification><id>2014-11-10_10:12:51_54608193a84bf</id><userId>1</userId><message>You applied for the project: Semantic Web Developing Tool</message><readed>readed</readed></notification><notification><id>2014-11-10_10:12:51_54608193a85a3</id><userId>0</userId><message>Dimitriu applied for the project: Semantic Web Developing Tool</message><readed>unreaded</readed></notification><notification><id>2014-11-10_10:12:53_5460819506ea3</id><userId>1</userId><message>You applied for the project: Semantic Web Developing Tool</message><readed>readed</readed></notification><notification><id>2014-11-10_10:12:53_5460819506f7c</id><userId>0</userId><message>Dimitriu applied for the project: Semantic Web Developing Tool</message><readed>unreaded</readed></notification><notification><id>2014-11-10_10:15:21_546082291b987</id><userId>1</userId><message>You applied for the project: Semantic Web Developing Tool</message><readed>readed</readed></notification><notification><id>2014-11-10_10:15:21_546082291ba48</id><userId>0</userId><message>Dimitriu applied for the project: Semantic Web Developing Tool</message><readed>unreaded</readed></notification><notification><id>2014-11-10_10:15:54_5460824a564af</id><userId>1</userId><message>You applied for the project: Semantic Web Developing Tool</message><readed>readed</readed></notification><notification><id>2014-11-10_10:15:54_5460824a56565</id><userId>0</userId><message>Dimitriu applied for the project: Semantic Web Developing Tool</message><readed>unreaded</readed></notification></notifications>

@@ -1,44 +1,33 @@
 <?php
 require_once 'utils.php';
 
-//check if user is logged or not
 $user = getSessionUser();
 if(!$user)
 {
-    die(Errors::$ERROR_90."");
-    return 1;
+    performXmlError(Errors::$ERROR_80);
 }
-//else
+
 if(!isset($_GET["projectId"]))
 {
-    die(Errors::$ERROR_90."_GET[\"projectId\"]");
+    performXmlError(Errors::$ERROR_90."_GET[\"projectId\"]");
 }
 
+$projectId = htmlspecialchars($_GET["projectId"]);
 
-
-/*
-require_once 'utils.php';
-
-if(!isset($_POST["username"]))
+if(!User::isStudent($user->getId()))
 {
-    die(Errors::$ERROR_90."_POST[\"username\"]");
+    performXmlError(Errors::$ERROR_20);
 }
 
-if(!isset($_POST["password"]))
+$errorCode = Applications::addApplication($user->getId(), $projectId);
+if(!$errorCode) //error code = 0 => no error;
 {
-    die(Errors::$ERROR_90."_POST[\"username\"]");
-}
-
-$username = htmlspecialchars($_POST["username"]);
-$password = htmlspecialchars($_POST["password"]);
-
-$user = new User($username,$password);
-if($user->isLogged())
-{
-    setSessionUser($user); //set a session
-    echo "logged"; //to do
+    $project = Projects::getProjectById($projectId);
+    Notifications::addUserNotifications($user->getId(), Messages::$MSG_10.$project->title);
+    Notifications::addUserNotifications($project->coordinatorId, $user->getLastName().Messages::$MSG_20.$project->title);
+    performXmlResponse("ok");
 }
 else
 {
-    die(Errors::$ERROR_10);
-}*/
+    performXmlError(Errors::$ERROR_01.$errorCode." from Applications::addApplication(".$user->getId().",".$projectId.")");
+}

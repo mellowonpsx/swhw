@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <users>
-    
-    
-    
     <user>
         <id>0</id>
         <email>prof@mail.com</email>
@@ -36,7 +33,7 @@
         <firstName>Sergio</firstName>
         <lastName>Oigres</lastName>
         <type>Student</type>
-        <projectId>-1</projectId>
+        <projectId>0</projectId>
     </user>
     <user>
         <id>4</id>
@@ -47,27 +44,4 @@
         <type>Student</type>
         <projectId>-1</projectId>
     </user>
-    
-    
-    <user>
-        <id>3</id>
-        <email>user3</email>
-        <password>1e4e888ac66f8dd41e00c5a7ac36a32a9950d271</password>
-        <firstName>Sever Vlad</firstName>
-        <lastName>Muresan</lastName>
-        <type>Coordinator</type>
-    </user>
-    
-    
-    <user>
-        <id>4</id>
-        <email>user4</email>
-        <password>1e4e888ac66f8dd41e00c5a7ac36a32a9950d271</password>
-        <firstName>Dragos Valentin</firstName>
-        <lastName>Bubu</lastName>
-        <type>Coordinator</type>
-    </user>
-    
-    
-    
 </users>
