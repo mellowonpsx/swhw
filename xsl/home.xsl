@@ -84,6 +84,11 @@
                 </ul>
             </div>
             </xsl:if>
+            <xsl:if test="not(projects)">
+                <div>
+                    Sorry, you have no project
+                </div>
+            </xsl:if>
         </body>
     </html>
     </xsl:template>                         

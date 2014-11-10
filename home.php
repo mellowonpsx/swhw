@@ -29,7 +29,10 @@ if(User::isStudent($user->getId()))
         $stringData .= "<studentProject>\n";
         $stringData .= "<project>\n";
         $stringData .= "<id>".$studentProject->id."</id>\n";
-        $stringData .= "<coordinator>".$studentProject->coordinatorId."</coordinator>\n";
+        //show more information about coordinator?
+        $coordinator = User::getUserById($project->coordinatorId);
+        $stringData .= "<coordinator>".$coordinator->lastName."</coordinator>\n";
+        // end show coordinator
         $stringData .= "<title>".$studentProject->title."</title>\n";
         $stringData .= "<description>".$studentProject->description."</description>\n";
         foreach($studentProject->keyword as $keyword)
@@ -95,8 +98,6 @@ else//!User::isStudent($user->getId()))
         $stringData .= "</projects>\n";
     }
 }
-//var_dump($projects);
-
 $stringData .= "</data>";
 //var_dump(htmlspecialchars($stringData));
 $data = simplexml_load_string($stringData);
@@ -106,11 +107,11 @@ $xslt->importStyleSheet($xsl);
 die($xslt->transformToXML($data));
 
 //case student
-//show notification area
-//show searchbox
-//show your project
-//show your application
+    //notification area
+    //searchbox
+    //your project OR
+    //your applications
 //case professor
-//notification
-//show searchbox
-//owned project
+    //notification
+    //show searchbox
+    //owned projects

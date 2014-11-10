@@ -11,6 +11,25 @@
         <maxNumberOfStudent>3</maxNumberOfStudent>
         <coordinatorId>0</coordinatorId>
     </project>
+    <project>
+        <id>1</id>
+        <title>Project 2</title>
+        <description>Lorem ipsum ipsum lorem lorem</description>
+        <keyword>Lorem</keyword>
+        <keyword>Ipsum</keyword>
+        <maxNumberOfStudent>10</maxNumberOfStudent>
+        <coordinatorId>0</coordinatorId>
+    </project>
+    <project>
+        <id>2</id>
+        <title>Best Project Ever</title>
+        <description>We are gonna make a lot of money with this project.</description>
+        <keyword>Money</keyword>
+        <keyword>A lot of</keyword>
+        <keyword>Money</keyword>
+        <maxNumberOfStudent>1</maxNumberOfStudent>
+        <coordinatorId>0</coordinatorId>
+    </project>
 </projects>
 
 

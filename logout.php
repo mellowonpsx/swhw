@@ -3,5 +3,5 @@ require_once 'utils.php';
 
 removeSession();
 
-//to do: complete
-echo "session closed";
+$response = stripslashes(file_get_contents(Constants::$PAGE_INDEX_HTML));
+echo $response;
