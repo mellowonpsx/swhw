@@ -14,7 +14,7 @@ require_once 'utils.php';
 
 //var_dump(($listCoordinators));
 
-$search = new Search(" tool Java Bubu Valentin vlad muresan muresan sever Sergio");
+$search = new Search(" tool Java Bubu Valentin Goldfarb muresan  sever Sergio CLASSES");
 $searchResults = $search->getSearchResults();
 
 var_dump($searchResults);

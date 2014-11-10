@@ -145,10 +145,14 @@ class User
         return $coordinators;
     }
     
+
+    
+
     public function getLastName()
     {
         return $this->lastName;
     }
+
 
 
     /*public function isAdmin()

@@ -22,6 +22,10 @@ class SearchResult {
     private $keywordsHits ;
     private $keywordsHitPercentage;
     
+    private $coordinator;
+    private $description;
+
+
     public function __construct($name, $url/*, $extraContent */) {
         $this->name = $name;
         $this->url = $url;
@@ -66,6 +70,22 @@ class SearchResult {
 
 
     //public function compare()
+
+    public function getCoordinator() {
+        return $this->coordinator;
+    }
+
+    public function getDescription() {
+        return $this->description;
+    }
+
+    public function setCoordinator($coordinator) {
+        $this->coordinator = $coordinator;
+    }
+
+    public function setDescription($description) {
+        $this->description = $description;
+    }
 
 
     
