@@ -114,45 +114,120 @@ class Search {
             
             $projectNameAsKeyWords = explode(" " , $project->title);
             
-            $numberOfPossibleKeywordsHits = sizeof($project->keyword) + sizeof($projectNameAsKeyWords);
+            $userById = User::getUserById($project->coordinatorId);
+            $coordinatorFullName = $userById->firstName." ".$userById->lastName;
+            $professorFullNameAsArrayOfStrings = explode(" ", $coordinatorFullName) ;
             
+            $description = $project->description;
+            
+            //This can be generated dinamically by searching use of a ASCII table
+            $unwantedChars = array(".", ",", ":", ";", "'", "\"", "?", "!", "$", "-");
+            
+            $description = str_replace($unwantedChars, "", $description);
+            
+            $descriptionAsArrayOfStrings = explode(" ", $description);
+            
+            $numberOfPossibleKeywordsHits =  0 ;
+            $numberOfPossibleKeywordsHits += sizeof($project->keyword) ;
+            $numberOfPossibleKeywordsHits += sizeof($projectNameAsKeyWords);
+            $numberOfPossibleKeywordsHits += sizeof($professorFullNameAsArrayOfStrings);
+            $numberOfPossibleKeywordsHits += sizeof($descriptionAsArrayOfStrings);
             
             //var_dump($firstNameAsArray);
             $searchResult ->setNumberOfPossibleKeywordsHits($numberOfPossibleKeywordsHits); 
             
+           
             
             foreach ($this->searchItems as $searchItem) {
+               
+                //Searching through project NAME
+                $this->searchThroughArrayOfKeyWords($projectNameAsKeyWords, $searchItem, $searchResult, $hits);
+//                foreach ($projectNameAsKeyWords as $value) {
+//                    
+//                    if(strcasecmp($value, $searchItem) == 0){     
+//                        //TODO maybe make that particular 
+//                        //var_dump($searchItem."---".$value);
+//                        $searchResult->incrementKeyWordsHits();     
+//                        array_push($hits, $value);
+//                    }
+//                    
+//                }
                 
-                foreach ($projectNameAsKeyWords as $value) {
-                    
-                    if(strcasecmp($value, $searchItem) == 0){     
-                        //TODO maybe make that particular 
-                        //var_dump($searchItem."---".$value);
-                        $searchResult->incrementKeyWordsHits();     
-                        array_push($hits, $value);
-                    }
-                    
-                }
+                //Searching through project KEYWORDS
+                $this->searchThroughArrayOfKeyWords($project->keyword, $searchItem, $searchResult, $hits);
                 
-                foreach ($project->keyword as $value) {
+//                foreach ($project->keyword as $value) {
+//                    
+//                    if(strcasecmp($value, $searchItem) == 0){     
+//                        //TODO maybe make that particular 
+//                        //var_dump($searchItem."---".$value);
+//                        $searchResult->incrementKeyWordsHits(); 
+//                        array_push($hits, $value);
+//                        //$extraContent .="<b>{$value} </b>";
+//                    }//else{
+//                        //$extraContent .="{$value} ";
+//                   // }
+//                    
+//                }    
                     
-                    if(strcasecmp($value, $searchItem) == 0){     
-                        //TODO maybe make that particular 
-                        //var_dump($searchItem."---".$value);
-                        $searchResult->incrementKeyWordsHits(); 
-                        array_push($hits, $value);
-                    }
-                    
-                }    
-                    
+                 //Searching through project COORDINATOR NAME
+                 $this->searchThroughArrayOfKeyWords($professorFullNameAsArrayOfStrings, $searchItem, $searchResult, $hits);
                 
+//                foreach ($professorFullNameAsArrayOfStrings as $value) {
+//                    
+//                    if(strcasecmp($value, $searchItem) == 0){     
+//                        //TODO maybe make that particular 
+//                        //var_dump($searchItem."---".$value);
+//                        $searchResult->incrementKeyWordsHits(); 
+//                        array_push($hits, $value);
+//                        
+//                    }
+//                    
+//                }    
+            
+           
                 
                     
             }//end of itterating through search items
             
+             
+            $extraContent = "" ;
+            $coordinatorFullName = "";
+            $description = "";
             
             $searchResult->setKeywordsHitPercentage();
-      
+            
+             foreach ($project->keyword as $value) {
+                 if(in_array($value, $hits)){
+                 $extraContent .="<b>{$value}</b> ";
+                    }else{
+                        $extraContent .="{$value} ";
+                    }
+             }
+            
+            $searchResult->setExtraContent($extraContent);
+            
+            
+            
+            
+            
+            
+            var_dump($professorFullNameAsArrayOfStrings);
+            var_dump($hits);
+            
+            foreach ($professorFullNameAsArrayOfStrings as $value) {
+                 if(in_array($value, $hits)){
+                 $coordinatorFullName .="<b>{$value}</b> ";
+                    }else{
+                        $coordinatorFullName .="{$value} ";
+                    }
+             }
+             var_dump($coordinatorFullName);
+
+             $searchResult->setCoordinator($coordinatorFullName);
+            
+            
+            
             if($searchResult->getKeywordsHitPercentage() > 0){
               
                 array_push($searchResults, $searchResult);
@@ -190,6 +265,25 @@ class Search {
         
     }
     
+    //$arrayOfKeywors is the array of keywords related to the project (description, prof. name , project keywords)
+    //$searchResult is the object of SearchResult type that we are currently building
+    //&$searchItem is the search item in the search string for which we are currently comparing keywords
+    //$hits is the hits array
+    private function searchThroughArrayOfKeyWords($arrayOfKeywors, $searchItem, &$searchResult, &$hits){
+        
+        foreach ($arrayOfKeywors as $value) {
+                    
+                    if(strcasecmp($value, $searchItem) == 0){     
+                        //TODO maybe make that particular 
+                        //var_dump($searchItem."---".$value);
+                        $searchResult->incrementKeyWordsHits();     
+                        array_push($hits, $value);
+                    }
+                    
+        }
+    } //end of function searchThroughArrayOfKeyWords
     
-    
+    //TODO: Make function to return strign with found hits in bodld
 }
+
+

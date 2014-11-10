@@ -145,6 +145,8 @@ class User
         return $coordinators;
     }
     
+    
+    
     /*public function isAdmin()
     {
         if($this->status === BD_USER_LOGGED && $this->getType() === BD_USER_TYPE_ADMIN)
