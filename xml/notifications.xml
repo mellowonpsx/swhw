@@ -28,7 +28,7 @@
         <id>2014-11-10_10:12:47_5460818f6cd63</id>
         <userId>0</userId>
         <message>Dimitriu applied for the project: Semantic Web Developing Tool</message>
-        <readed>unreaded</readed>
+        <readed>readed</readed>
     </notification>
     <notification>
         <id>2014-11-10_10:12:50_54608192075cf</id>
@@ -40,7 +40,7 @@
         <id>2014-11-10_10:12:50_54608192076b4</id>
         <userId>0</userId>
         <message>Dimitriu applied for the project: Semantic Web Developing Tool</message>
-        <readed>unreaded</readed>
+        <readed>readed</readed>
     </notification>
     <notification>
         <id>2014-11-10_10:12:51_54608193a84bf</id>
@@ -102,4 +102,4 @@
         <message>Dimitriu applied for the project: Semantic Web Developing Tool</message>
         <readed>unreaded</readed>
     </notification>
-<notification><id>2014-11-10_16:06:36_5460d47cbcd4e</id><userId>2</userId><message>You applied for the project: Best Project Ever</message><readed>unreaded</readed></notification><notification><id>2014-11-10_16:06:36_5460d47cbce0d</id><userId>0</userId><message>Sogard applied for the project: Best Project Ever</message><readed>unreaded</readed></notification></notifications>
+<notification><id>2014-11-10_16:06:36_5460d47cbcd4e</id><userId>2</userId><message>You applied for the project: Best Project Ever</message><readed>unreaded</readed></notification><notification><id>2014-11-10_16:06:36_5460d47cbce0d</id><userId>0</userId><message>Sogard applied for the project: Best Project Ever</message><readed>unreaded</readed></notification><notification><id>2014-11-11_13:02:12_5461fac42761e</id><userId>4</userId><message>You applied for the project: Best Project Ever</message><readed>unreaded</readed></notification><notification><id>2014-11-11_13:02:12_5461fac4276f0</id><userId>0</userId><message>Dalv applied for the project: Best Project Ever</message><readed>unreaded</readed></notification><notification><id>2014-11-11_13:49:40_546205e415591</id><userId/><message>Goldfarb refused your application for the project: Best Project Ever</message><readed>unreaded</readed></notification><notification><id>2014-11-11_13:49:40_546205e4156b0</id><userId>0</userId><message>You have refused application from: Sogard</message><readed>unreaded</readed></notification><notification><id>2014-11-11_13:49:44_546205e8a35e8</id><userId/><message>Goldfarb refused your application for the project: Best Project Ever</message><readed>unreaded</readed></notification><notification><id>2014-11-11_13:49:44_546205e8a36dd</id><userId>0</userId><message>You have refused application from: Dalv</message><readed>unreaded</readed></notification><notification><id>2014-11-11_13:51:16_546206441d8b1</id><userId>4</userId><message>You applied for the project: Best Project Ever</message><readed>unreaded</readed></notification><notification><id>2014-11-11_13:51:16_546206441d977</id><userId>0</userId><message>Dalv applied for the project: Best Project Ever</message><readed>unreaded</readed></notification><notification><id>2014-11-11_13:51:51_546206673ed4f</id><userId>4</userId><message>Goldfarb refused your application for the project: Best Project Ever</message><readed>unreaded</readed></notification><notification><id>2014-11-11_13:51:51_546206673eea0</id><userId>0</userId><message>You have refused application from: Dalv</message><readed>unreaded</readed></notification></notifications>

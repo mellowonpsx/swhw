@@ -67,46 +67,30 @@ if(User::isStudent($user->getId()))
     $stringData .="<studentData>";
     if(Projects::getUserProject($user->getId()))
     {
-        $stringData .="<studentMessage>asd</studentMessage>";
-        echo "gia con progetto<br/><br/>";
+        $stringData .="<studentMessage>".Messages::$MSG_30."</studentMessage>";
+        //echo "gia con progetto<br/><br/>";
     }
     else if(Applications::applicationExist ($user->getId(),$project->id))
     {
-        $stringData .="<studentMessage>asd</studentMessage>";
-        echo "gia applicato<br/><br/>";
+        $stringData .="<studentMessage>".Messages::$MSG_31."</studentMessage>";
+        //echo "gia applicato<br/><br/>";
     } else if(!Projects::projectFreeSpot($project->id))
     {
-        $stringData .="<studentMessage>asd</studentMessage>";
-        echo "progetto pieno<br/><br/>";
+        $stringData .="<studentMessage>".Messages::$MSG_32."</studentMessage>";
+        //echo "progetto pieno<br/><br/>";
     }
     else
     {
-        $stringData .="<studentMessage>asd</studentMessage>";
+        //echo "progetto registrabile<br/><br/>";
+        $stringData .="<studentMessage>".Messages::$MSG_33."</studentMessage>";
         $stringData .="<available/>";
-        echo "progetto registrabile<br/><br/>";
     }
-    $stringData .="</studentData>";
-    /*
-    $stringData .="<applications>";
-    $applications = Applications::listProjectApplication($project->id);
-    foreach($applications as $application)
-    {
-        $stringData .="<application>";
-        $stringData .= "<studentId>".$application->studentId."</studentId>";
-        $thisUser = User::getUserById($application->studentId);
-        if(!$thisUser) //this user = null
-        {
-            continue;
-        }
-        $stringData .= "<studentName>".$thisUser->lastName.", ".$thisUser->firstName."</studentName>";
-        $stringData .="</application>";
-    }
-    $stringData .="</applications>";*/
+    $stringData .="</studentData>";    
 }
 $stringData .= "</project>\n";
 $stringData .= "</projects>\n";
 $stringData .= "</data>";
-var_dump(htmlspecialchars($stringData));
+//var_dump(htmlspecialchars($stringData));
 $data = simplexml_load_string($stringData);
 $xsl = simplexml_load_file(Constants::$XSLT_PROJECT);
 $xslt = new XSLTProcessor;

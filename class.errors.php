@@ -17,6 +17,7 @@ class Errors
     static public $ERROR_11 = "Error 11: missing resource ";
     
     static public $ERROR_20 = "Error 20: wrong user type ";
+    static public $ERROR_21 = "Error 21: wrong user ";
     
     static public $ERROR_80 = "Error 80: log in required ";
     static public $ERROR_81 = "Error 81: log in already performed ";
