@@ -1,15 +1,261 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <notifications>
-    <notification>
+     <notification>
         <id>0</id>
         <userId>0</userId>
         <message>stocazzo</message>
-        <readed>readed</readed>
+        <readed>unreaded</readed>
     </notification>
     <notification>
         <id>1</id>
         <userId>0</userId>
         <message>stocazzo2</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2</id>
+        <userId>1</userId>
+        <message>stocazzo3</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:12:47_5460818f6cc5e</id>
+        <userId>1</userId>
+        <message>You applied for the project: Semantic Web Developing Tool</message>
+        <readed>readed</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:12:47_5460818f6cd63</id>
+        <userId>0</userId>
+        <message>Dimitriu applied for the project: Semantic Web Developing Tool</message>
+        <readed>readed</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:12:50_54608192075cf</id>
+        <userId>1</userId>
+        <message>You applied for the project: Semantic Web Developing Tool</message>
+        <readed>readed</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:12:50_54608192076b4</id>
+        <userId>0</userId>
+        <message>Dimitriu applied for the project: Semantic Web Developing Tool</message>
+        <readed>readed</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:12:51_54608193a84bf</id>
+        <userId>1</userId>
+        <message>You applied for the project: Semantic Web Developing Tool</message>
+        <readed>readed</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:12:51_54608193a85a3</id>
+        <userId>0</userId>
+        <message>Dimitriu applied for the project: Semantic Web Developing Tool</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:12:53_5460819506ea3</id>
+        <userId>1</userId>
+        <message>You applied for the project: Semantic Web Developing Tool</message>
+        <readed>readed</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:12:53_5460819506f7c</id>
+        <userId>0</userId>
+        <message>Dimitriu applied for the project: Semantic Web Developing Tool</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:15:21_546082291b987</id>
+        <userId>1</userId>
+        <message>You applied for the project: Semantic Web Developing Tool</message>
+        <readed>readed</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:15:21_546082291ba48</id>
+        <userId>0</userId>
+        <message>Dimitriu applied for the project: Semantic Web Developing Tool</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:15:54_5460824a564af</id>
+        <userId>1</userId>
+        <message>You applied for the project: Semantic Web Developing Tool</message>
+        <readed>readed</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_10:15:54_5460824a56565</id>
+        <userId>0</userId>
+        <message>Dimitriu applied for the project: Semantic Web Developing Tool</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_13:18:32_5460ad18da0f9</id>
+        <userId>1</userId>
+        <message>You applied for the project: Semantic Web Developing Tool</message>
+        <readed>readed</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_13:18:32_5460ad18da225</id>
+        <userId>0</userId>
+        <message>Dimitriu applied for the project: Semantic Web Developing Tool</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_16:06:36_5460d47cbcd4e</id>
+        <userId>2</userId>
+        <message>You applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-10_16:06:36_5460d47cbce0d</id>
+        <userId>0</userId>
+        <message>Sogard applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_13:02:12_5461fac42761e</id>
+        <userId>4</userId>
+        <message>You applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_13:02:12_5461fac4276f0</id>
+        <userId>0</userId>
+        <message>Dalv applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_13:49:40_546205e415591</id>
+        <userId/>
+        <message>Goldfarb refused your application for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_13:49:40_546205e4156b0</id>
+        <userId>0</userId>
+        <message>You have refused application from: Sogard</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_13:49:44_546205e8a35e8</id>
+        <userId/>
+        <message>Goldfarb refused your application for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_13:49:44_546205e8a36dd</id>
+        <userId>0</userId>
+        <message>You have refused application from: Dalv</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_13:51:16_546206441d8b1</id>
+        <userId>4</userId>
+        <message>You applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_13:51:16_546206441d977</id>
+        <userId>0</userId>
+        <message>Dalv applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_13:51:51_546206673ed4f</id>
+        <userId>4</userId>
+        <message>Goldfarb refused your application for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_13:51:51_546206673eea0</id>
+        <userId>0</userId>
+        <message>You have refused application from: Dalv</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:26:53_54620e9d4286e</id>
+        <userId>4</userId>
+        <message>You applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:26:53_54620e9d4293f</id>
+        <userId>0</userId>
+        <message>Dalv applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:27:26_54620ebe9c6bb</id>
+        <userId>2</userId>
+        <message>You applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:27:26_54620ebe9c7a6</id>
+        <userId>0</userId>
+        <message>Sogard applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:34:35_5462106b45dfd</id>
+        <userId>2</userId>
+        <message>Goldfarb accept your application for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:34:35_5462106b45ee4</id>
+        <userId>0</userId>
+        <message>You have accept application from: Sogard</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:34:35_5462106b4bff4</id>
+        <userId>2</userId>
+        <message>You have been accepted to a project, all other application are automatically removed</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:34:35_5462106b4c1b3</id>
+        <userId>0</userId>
+        <message>You have automatically refuse (no free slot) application for project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:38:43_54621163d7c43</id>
+        <userId>4</userId>
+        <message>You applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:38:43_54621163d7d22</id>
+        <userId>0</userId>
+        <message>Dalv applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:39:13_5462118160cc9</id>
+        <userId>2</userId>
+        <message>You applied for the project: Semantic Web Developing Tool</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:39:13_5462118160dbb</id>
+        <userId>0</userId>
+        <message>Sogard applied for the project: Semantic Web Developing Tool</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:39:19_54621187e5f51</id>
+        <userId>2</userId>
+        <message>You applied for the project: Best Project Ever</message>
+        <readed>unreaded</readed>
+    </notification>
+    <notification>
+        <id>2014-11-11_14:39:19_54621187e6054</id>
+        <userId>0</userId>
+        <message>Sogard applied for the project: Best Project Ever</message>
         <readed>unreaded</readed>
     </notification>
 </notifications>

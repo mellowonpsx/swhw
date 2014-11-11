@@ -91,7 +91,13 @@ class Applications
         $errors = 0;
         foreach ($applications as $application)
         {
-            $errors += Applications::removeApplication($application->studentId, $application->projectId);
+            $project = Projects::getProjectById($application->projectId);
+            $student = User::getUserById($application->studentId);
+            if($project&&$student) //both not null
+            {
+                Notifications::addUserNotifications($project->coordinatorId, $student->lastName.Messages::$MSG_24.$project->title);
+                $errors += Applications::removeApplication($application->studentId, $application->projectId);
+            }
         }
         return $errors;
     }
@@ -102,7 +108,13 @@ class Applications
         $errors = 0;
         foreach ($applications as $application)
         {
-            $errors += Applications::removeApplication($application->studentId, $application->projectId);
+            //advice all the student
+            $project = Projects::getProjectById($application->projectId);
+            if($project)
+            {
+                Notifications::addUserNotifications($application->studentId, Messages::$MSG_13.$project->title);
+                $errors += Applications::removeApplication($application->studentId, $application->projectId);
+            }
         }
         return $errors;
     }
