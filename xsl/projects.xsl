@@ -38,7 +38,7 @@
       </div>
     </div>
         <div class="container pt">
-		<div class="row mt centered">	
+		<div class="row">	
             
             <div class="row mt">
 			<div class="col-lg-12">
@@ -50,8 +50,9 @@
          
                 <input type="text" name="searchArea" />
                 <input type="submit" value="Search" />
-               
+
             </div>
+			<div>  <br></br> </div>
             <xsl:choose>
             <xsl:when test="projects">
             <div id="research-result">
@@ -91,6 +92,36 @@
             
             
             </div> </div>
+			            	<div id="footer">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-4">
+					<h4>Address</h4>
+					<p>
+						Some Address 987,<br/>
+						+34 9054 5455, <br/>
+						Madrid, Spain.
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>My Links</h4>
+					<p>
+						<a href="#">Dribbble</a><br/>
+						<a href="#">Twitter</a><br/>
+						<a href="#">Facebook</a>
+					</p>
+				</div><!-- /col-lg-4 -->
+				
+				<div class="col-lg-4">
+					<h4>About Bachelor</h4>
+					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+				</div><!-- /col-lg-4 -->
+			
+			</div>
+		
+		</div>
+	</div>
 			
             <script src="assets/js/bootstrap.min.js"></script>
         </body>

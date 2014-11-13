@@ -41,7 +41,7 @@
     
     
         <div class="container pt">
-		<div class="row mt centered">	
+		<div class="row">	
             
             <div class="row mt">
 			<div class="col-lg-12">
@@ -49,7 +49,7 @@
                 <hr></hr>  </div> </div>
                 
          
-           <div class="col-lg-9">
+           <div class="col-lg-12">
          
          
             <xsl:if test="notifications">
@@ -157,7 +157,7 @@
             
             
             
-            	<div id="footer">
+      <div id="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-4">

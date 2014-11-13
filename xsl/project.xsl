@@ -40,10 +40,11 @@
             
             
         <div class="container pt">
-		<div class="row mt centered">	
+		<div class="row">	
             
             <div class="row mt">
 			<div class="col-lg-12">
+		    
 				<h4>Project</h4>
                 <hr></hr>  </div> </div>
             
@@ -58,15 +59,16 @@
                             <xsl:for-each select="keyword">
                                 <xsl:value-of select="."/>
                             </xsl:for-each>
-                            <div class="">
+                            <div class="pull-left">
                             Student accepted: <xsl:value-of select="numberOfStudent"/>/
                             <xsl:value-of select="maxNumberOfStudent"/>
-                            Student intrested: <xsl:value-of select="numberOfApplication"/>
+                            Student interested: <xsl:value-of select="numberOfApplication"/>
                             <!--<xsl:choose>
                                 <xsl:when test="student/available">
                                     blablabla
                                 </xsl:when>
                             </xsl:choose>-->
+							
                             <xsl:if test="studentData">                                
                                 <xsl:value-of select="studentData/studentMessage"/>
                                 <xsl:if test="studentData/available">
@@ -74,17 +76,23 @@
                                 </xsl:if>
                             </xsl:if>
                             </div>
-                            <div>
+							<div>
+							<br></br>
+							</div>
+						
+                            <div >
                             <xsl:if test="applications">
                                 <xsl:for-each select="applications/application">
-                                   <div class="pull-right"> <xsl:variable name="studentId" select="studentId"/>
-                                    <xsl:value-of select="studentName"/>
+                                   <div style="width:300px">
+									<div class="pull-right">
+								   <xsl:variable name="studentId" select="studentId"/>
+                                   <xsl:value-of select="studentName"/> 
                                    
                                     <a class="btn btn-default" href="acceptApplication.php?studentId={$studentId}&amp;projectId={$projectId}">Accept</a> 
-                                 
-                                
-                                    <a class="btn btn-default" href="refuseApplication.php?studentId={$studentId}&amp;projectId={$projectId}">Refuse</a>
+									<a class="btn btn-default" href="refuseApplication.php?studentId={$studentId}&amp;projectId={$projectId}">Refuse</a>
+									
                                        </div>
+									</div>
                                 </xsl:for-each>
                             </xsl:if>
                                 </div>
@@ -92,8 +100,10 @@
                 </xsl:for-each>
                 </ul>
             </div>
-            
-            </div> </div>
+           
+            </div> 
+			 <a class="btn btn-primary" href="projects.php"> BACK </a>
+			</div>
             
                  
             	<div id="footer">

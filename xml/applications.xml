@@ -11,8 +11,5 @@
         <studentId>4</studentId>
         <projectId>0</projectId>
     </application>
-    <application>
-        <studentId>1</studentId>
-        <projectId>0</projectId>
-    </application>
-</applications>
+    
+<application><studentId>1</studentId><projectId>0</projectId></application></applications>
