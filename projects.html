@@ -50,45 +50,56 @@
 	<!-- +++++ Welcome Section +++++ -->
 
 	
-	<!-- +++++ SVG +++++ -->
+
 	
 	<div class="container pt">
 		<div class="row mt centered">	
+            
+            <div class="row mt">
 			<div class="col-lg-12">
-				
-				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
-			</div>
 			
-<!--
-			<div class="col-lg-3">
-				<span class="glyphicon glyphicon-user"></span>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-			</div>
-
-			<div class="col-lg-3">
-				<span class="glyphicon glyphicon-fire"></span>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-			</div>
-
-			<div class="col-lg-3">
-				<span class="glyphicon glyphicon-globe"></span>
-				<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-			</div>
--->
-		</div><!-- /row -->
-		
-		<div class="row mt">
-			<div class="col-lg-6">
-				<h4>THE THINKING</h4>
-				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
-			</div><!-- /colg-lg-6 -->
-            <div class="col-lg-6">
-				<h4>THE THINKING</h4>
-				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source.</p>
-			</div><!-- /colg-lg-6 -->
+			<h1>
+			<a href="readedNotification.php" class="ajax-link" id="1" > link </a>
+			<a href="readedNotification.php" class="ajax-link" id="2" > link </a>
+			<a href="readedNotification.php" class="ajax-link" id="3" > link </a>
+			<a href="readedNotification.php" class="ajax-link" id="4" > link </a>
 			
+			</h1>
+			
+			
+				<h4>Notifications</h4>
+				<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure </p>
+			</div><!-- /colg-lg-6 -->
+         
 		
 		</div><!-- /row -->
+            
+         
+			<div class="col-lg-12">
+                
+                <form action="">
+                    Enter a search keyword:
+                  <input type="text" name="searchProject" min="2000-01-">
+                  <input type="submit" value="Search"> 
+                </form>
+
+                <h3>Projects</h3>
+                <hr></hr>
+                
+            <div class="pull-left">
+		
+                <p> Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+            	<p> Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+            	<p> Contrary to popular belief, Lorem Ipsum is not simply random text.</p>
+        
+            </div>
+
+            </div>
+			
+
+		</div><!-- /row -->
+		
+		
 	</div><!-- /container -->
 	
 	
@@ -130,5 +141,35 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="assets/js/bootstrap.min.js"></script>
+	<script>
+	$("a.ajax-link").click(function( event )
+	{
+		event.preventDefault();
+		self = jQuery(this);
+		href = self.attr('href');
+		id = self.attr('id');
+		throwAjax(href, id);
+	});
+	
+	function throwAjax(link, id)
+	{
+		$.ajax({
+				url: link,
+				dataType: "xml",
+				type: "GET",
+				success: function(data)
+				{
+					$("#"+id+"").hide(500);
+					//$("a.ajax-link").attr('href', link).hide();
+					console.log(data);
+					
+				},
+				error: function(data)
+				{
+					console.log(data);
+				}
+		});
+	}
+	</script>
   </body>
 </html>
