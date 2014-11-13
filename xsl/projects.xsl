@@ -75,7 +75,7 @@
                        
                         Student accepted: <xsl:value-of select="numberOfStudent"/>/
                         <xsl:value-of select="maxNumberOfStudent"/>
-                        Student intrested: <xsl:value-of select="numberOfApplication"/>
+                        Student interested: <xsl:value-of select="numberOfApplication"/>
                         <a href="showProject.php?id={$projectId}"> show project </a>
                        
                     </li>

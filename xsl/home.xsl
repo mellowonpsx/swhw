@@ -23,12 +23,12 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="">Bachelor</a>
+          <a class="navbar-brand" href="home.php">Bachelor</a>
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             
-            <li><a href="projects.html">Projects</a></li>
+            <li><a href="projects.php">Projects</a></li>
             <li><a href="about.html">About</a></li>
 
             <li><a href="index.html">Logout</a></li>
@@ -54,14 +54,16 @@
          
             <xsl:if test="notifications">
             <div id="notification-area">
+			<div class="ajax-link">
                 <ul>
                 <xsl:for-each select="notifications/notification">
                     <li>
                         <xsl:variable name="notificationId" select="id"/>
-                        <xsl:value-of select="message"/><a href="readedNotification.php?id={$notificationId}"> readed </a>
+                        <xsl:value-of select="message"/> <a href="readedNotification.php?id={$notificationId}" > readed </a>
                     </li>
                 </xsl:for-each>
                 </ul>
+				</div>
             </div>
             </xsl:if>
             
@@ -95,7 +97,7 @@
                         
                         Student accepted: <xsl:value-of select="numberOfStudent"/>/
                         <xsl:value-of select="maxNumberOfStudent"/>
-                        Student intrested: <xsl:value-of select="numberOfApplication"/>
+                        Student interested: <xsl:value-of select="numberOfApplication"/>
                         <a href="showProject.php?id={$projectId}"> show project </a>
                     
                     </li>
@@ -117,7 +119,7 @@
                         </xsl:for-each>
                         Student accepted: <xsl:value-of select="numberOfStudent"/>/
                         <xsl:value-of select="maxNumberOfStudent"/>
-                        Student intrested: <xsl:value-of select="numberOfApplication"/>
+                        Student interested: <xsl:value-of select="numberOfApplication"/>
                         <a href="showProject.php?id={$projectId}"> show project </a>
                     </li> 
                 </xsl:for-each>
@@ -138,7 +140,7 @@
                         </xsl:for-each>
                         Student accepted: <xsl:value-of select="numberOfStudent"/>/
                         <xsl:value-of select="maxNumberOfStudent"/>
-                        Student intrested: <xsl:value-of select="numberOfApplication"/>
+                        Student interested: <xsl:value-of select="numberOfApplication"/>
                         <a href="showProject.php?id={$projectId}"> show project </a> 
                     </li>
                 </xsl:for-each>
@@ -187,7 +189,36 @@
 		
 		</div>
 	</div>
-            
+           	<script>
+	$("a.ajax-link").click(function( event )
+	{
+		event.preventDefault();
+		self = jQuery(this);
+		href = self.attr('href');
+		id = self.attr('id');
+		throwAjax(href, id);
+	});
+	
+	function throwAjax(link, id)
+	{
+		$.ajax({
+				url: link,
+				dataType: "xml",
+				type: "GET",
+				success: function(data)
+				{
+					$("#"+id+"").hide(500);
+					//$("a.ajax-link").attr('href', link).hide();
+					console.log(data);
+					
+				},
+				error: function(data)
+				{
+					console.log(data);
+				}
+		});
+	}
+			</script> 
             
         </body>
     </html>

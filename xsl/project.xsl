@@ -68,13 +68,15 @@
                                     blablabla
                                 </xsl:when>
                             </xsl:choose>-->
-							
+							<div>
                             <xsl:if test="studentData">                                
                                 <xsl:value-of select="studentData/studentMessage"/>
                                 <xsl:if test="studentData/available">
                                     <a href="apply.php?projectId={$projectId}">apply</a>
                                 </xsl:if>
                             </xsl:if>
+							</div>
+							
                             </div>
 							<div>
 							<br></br>
