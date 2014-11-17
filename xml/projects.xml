@@ -14,10 +14,10 @@
     <project>
         <id>1</id>
         <title>Project 2</title>
-        <description>Lorem ipsum ipsum lorem lorem</description>
-        <keyword>Lorem</keyword>
-        <keyword>Ipsum</keyword>
-        <maxNumberOfStudent>0</maxNumberOfStudent>
+        <description>Description</description>
+        <keyword>X</keyword>
+        <keyword>Y</keyword>
+        <maxNumberOfStudent>3</maxNumberOfStudent>
         <coordinatorId>0</coordinatorId>
     </project>
     <project>
@@ -28,7 +28,7 @@
         <keyword>A lot of</keyword>
         <keyword>Money</keyword>
         <maxNumberOfStudent>1</maxNumberOfStudent>
-        <coordinatorId>0</coordinatorId>
+        <coordinatorId>5</coordinatorId>
     </project>
 </projects>
 

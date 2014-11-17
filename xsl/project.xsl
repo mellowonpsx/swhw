@@ -12,7 +12,7 @@
                 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
                 <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css' />    
             
-               <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+                <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
           
         </head>
         <body>
@@ -32,7 +32,7 @@
             <li><a href="projects.html">Projects</a></li>
             <li><a href="about.html">About</a></li>
 
-            <li><a href="index.html">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -72,7 +72,7 @@
                             <xsl:if test="studentData">                                
                                 <xsl:value-of select="studentData/studentMessage"/>
                                 <xsl:if test="studentData/available">
-                                    <a href="apply.php?projectId={$projectId}">apply</a>
+                                    <a class="ajax-link"  href="apply.php?projectId={$projectId}">apply</a>
                                 </xsl:if>
                             </xsl:if>
 							</div>
@@ -89,10 +89,10 @@
 									<div class="pull-right">
 								   <xsl:variable name="studentId" select="studentId"/>
                                    <xsl:value-of select="studentName"/> 
-                                   
-                                    <a class="btn btn-default" href="acceptApplication.php?studentId={$studentId}&amp;projectId={$projectId}">Accept</a> 
-									<a class="btn btn-default" href="refuseApplication.php?studentId={$studentId}&amp;projectId={$projectId}">Refuse</a>
-									
+                                   <span>
+                                    <a class="btn btn-default ajax-link"  href="acceptApplication.php?studentId={$studentId}&amp;projectId={$projectId}">Accept</a> 
+									<a class="btn btn-default ajax-link" href="refuseApplication.php?studentId={$studentId}&amp;projectId={$projectId}">Refuse</a>
+									</span>
                                        </div>
 									</div>
                                 </xsl:for-each>
@@ -138,7 +138,41 @@
 		
 		</div>
 	</div>
-            
+       
+				<script>
+			$("a.ajax-link").click(function( event )
+					{
+						event.preventDefault();
+						self = jQuery(this);
+						href = self.attr('href');
+						//id = self.attr('id');
+						throwAjax(href);
+					});
+					
+			function throwAjax(link)
+				{
+					$.ajax({
+							url: link,
+							dataType: "xml",
+							type: "GET",
+							success: function(data)
+							{
+								//$("#"+id+"").hide(500);
+								$('a.ajax-link[href="'+link+'"]').parent().hide();
+								
+								console.log(data);
+								
+							},
+							error: function(data)
+							{
+								console.log(data);
+							}
+					});
+				}
+			</script>
+			
+			
+			
             <script src="assets/js/bootstrap.min.js"></script>
         </body>
          

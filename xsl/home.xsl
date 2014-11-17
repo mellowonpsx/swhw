@@ -7,10 +7,14 @@
                 <meta name="viewport"    content="width=device-width, initial-scale=1.0" />
                 <title> Home page</title>
                 <link rel="shortcut icon" href="assets/images/pic.png" />
-             <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+                <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
                 <link rel="stylesheet" href="assets/css/main.css" />
                 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
                 <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css' />    
+				
+				
+				 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+
           
         </head>
         <body>
@@ -31,7 +35,7 @@
             <li><a href="projects.php">Projects</a></li>
             <li><a href="about.html">About</a></li>
 
-            <li><a href="index.html">Logout</a></li>
+            <li><a href="logout.php">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -47,7 +51,8 @@
 			<div class="col-lg-12">
 				<h4>Notifications</h4>
                 <hr></hr>  </div> </div>
-                
+                	
+			
          
            <div class="col-lg-12">
          
@@ -59,7 +64,8 @@
                 <xsl:for-each select="notifications/notification">
                     <li>
                         <xsl:variable name="notificationId" select="id"/>
-                        <xsl:value-of select="message"/> <a href="readedNotification.php?id={$notificationId}" > readed </a>
+                        <xsl:value-of select="message"/> 
+						<a class="ajax-link" href="readedNotification.php?id={$notificationId}" > readed </a>
                     </li>
                 </xsl:for-each>
                 </ul>
@@ -151,7 +157,7 @@
             
             
                 </div> 
-            
+         
              </div> </div> 
             
             
@@ -189,37 +195,42 @@
 		
 		</div>
 	</div>
-           	<script>
-	$("a.ajax-link").click(function( event )
-	{
-		event.preventDefault();
-		self = jQuery(this);
-		href = self.attr('href');
-		id = self.attr('id');
-		throwAjax(href, id);
-	});
+    
+
 	
-	function throwAjax(link, id)
-	{
-		$.ajax({
-				url: link,
-				dataType: "xml",
-				type: "GET",
-				success: function(data)
-				{
-					$("#"+id+"").hide(500);
-					//$("a.ajax-link").attr('href', link).hide();
-					console.log(data);
+	
+				<script>
+			$("a.ajax-link").click(function( event )
+					{
+						event.preventDefault();
+						self = jQuery(this);
+						href = self.attr('href');
+						//id = self.attr('id');
+						throwAjax(href);
+					});
 					
-				},
-				error: function(data)
+			function throwAjax(link)
 				{
-					console.log(data);
+					$.ajax({
+							url: link,
+							dataType: "xml",
+							type: "GET",
+							success: function(data)
+							{
+								//$("#"+id+"").hide(500);
+								$('a.ajax-link[href="'+link+'"]').parent().hide();
+								
+								console.log(data);
+								
+							},
+							error: function(data)
+							{
+								console.log(data);
+							}
+					});
 				}
-		});
-	}
-			</script> 
-            
+			</script>
+
         </body>
     </html>
     </xsl:template>                         

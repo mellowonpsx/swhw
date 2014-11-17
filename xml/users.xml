@@ -24,7 +24,7 @@
         <firstName>Dragos</firstName>
         <lastName>Sogard</lastName>
         <type>Student</type>
-        <projectId>2</projectId>
+        <projectId>-1</projectId>
     </user>
     <user>
         <id>3</id>
@@ -33,7 +33,7 @@
         <firstName>Sergio</firstName>
         <lastName>Oigres</lastName>
         <type>Student</type>
-        <projectId>0</projectId>
+        <projectId>-1</projectId>
     </user>
     <user>
         <id>4</id>
@@ -42,6 +42,15 @@
         <firstName>Vlad</firstName>
         <lastName>Dalv</lastName>
         <type>Student</type>
-        <projectId>-1</projectId>
+        <projectId>0</projectId>
+    </user>
+	   <user>
+        <id>5</id>
+        <email>xyz@mail.com</email>
+        <password>0221514871a217180019c6784f74ca8ff002ddab</password>
+        <firstName>Bruce</firstName>
+        <lastName>Wayne</lastName>
+        <type>Coordinator</type>
+        
     </user>
 </users>

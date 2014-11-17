@@ -6,10 +6,4 @@
 <!ELEMENT projectId (#PCDATA)>
 ]>
 <applications>
-    
-    <application>
-        <studentId>4</studentId>
-        <projectId>0</projectId>
-    </application>
-    
-<application><studentId>1</studentId><projectId>0</projectId></application></applications>
+</applications>
