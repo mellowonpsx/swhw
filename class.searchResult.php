@@ -16,7 +16,7 @@ class SearchResult {
     
     private $name;
     private $url;
-    private $extraContent;
+    private $extraContent; 
     
     private $numberOfPossibleKeywordsHits; // 
     private $keywordsHits ;
@@ -54,6 +54,10 @@ class SearchResult {
         return $this->name;
     }
 
+    public function getTitle() {
+        return $this->getName();
+    }
+    
     public function getUrl() {
         return $this->url;
     }
@@ -61,7 +65,10 @@ class SearchResult {
     public function getExtraContent() {
         return $this->extraContent;
     }
-
+    
+    public function getKeywords() {
+        return $this->getExtraContent();
+    }
     
     public function getKeywordsHitPercentage() {
         

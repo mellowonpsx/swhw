@@ -40,6 +40,9 @@ class Constants
     public static $PAGE_LOGIN_HTML = "login.html";
     public static $PAGE_INDEX_HTML = "index.html";
     public static $PAGE_PROJECT_HTML = "projects.html";
+    
+    public static $PAGE_SHOW_PROJECT = "showProject.php"; //showProject.php?id=0
+    
     /*
      * //document
 //status

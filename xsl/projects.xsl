@@ -47,10 +47,10 @@
             
             
             <div id="serach-area">
-         
+         <form action = 'searchResults.php' method = "GET">
                 <input type="text" name="searchArea" />
                 <input type="submit" value="Search" />
-
+         </form>
             </div>
 			<div>  <br></br> </div>
             <xsl:choose>
