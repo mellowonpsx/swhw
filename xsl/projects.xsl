@@ -21,30 +21,49 @@
                 <div>
                      <br />
                 </div>
+				
                 <xsl:choose>
                 <xsl:when test="projects">
+				
                 <div id="research-result">
+						
                     <ul class="pull-left">
+					
                     <xsl:for-each select="projects/project">
                         <li>
+							
                             <xsl:variable name="projectId" select="id"/>
-                            <xsl:value-of select="coordinator"/>
-                            <xsl:value-of select="title"/>
-                            <xsl:value-of select="description"/>
-                            <xsl:for-each select="keyword">
-                                <xsl:value-of select="."/>
+							<h3> <xsl:value-of select="title"/> </h3>
+							<br></br>
+							 <span class="glyphicon glyphicon-info-sign"></span>	
+							<xsl:value-of select="description"/>
+							<br></br>
+							 <span class="glyphicon glyphicon-asterisk"></span>		
+						    <xsl:for-each select="keyword">
+                            <xsl:value-of select="."/>
                             </xsl:for-each>
-
+							<br></br>
+							<span class="glyphicon glyphicon-user"></span>
+                            <xsl:value-of select="coordinator"/>
+                           
+                           
+                           
+							<br></br>
+							
                             Student accepted: <xsl:value-of select="numberOfStudent"/>/
-                            <xsl:value-of select="maxNumberOfStudent"/>
+                            <xsl:value-of select="maxNumberOfStudent"/> <span> | </span>
                             Student interested: <xsl:value-of select="numberOfApplication"/>
-                            <a href="showProject.php?id={$projectId}"> show project </a>
-
+							<br></br>
+                            <a class="btn btn-info" href="showProject.php?id={$projectId}"> show project </a>
+							<hr></hr>
                         </li>
                     </xsl:for-each>
+					
                     </ul>
-                </div>
+					</div>
+              
                 </xsl:when>
+				
                 <xsl:otherwise>
                     <div>
                         Sorry, you have no project that 

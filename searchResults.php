@@ -58,7 +58,7 @@ $searchResults = $search->getSearchResults();
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-             <li><a href="projects.html">Projects</a></li>
+             <li><a href="projects.php">Projects</a></li>
             <li><a href="about.html">About</a></li>
 
             <li><a href="logout.php">Logout</a></li>
@@ -98,12 +98,15 @@ $searchResults = $search->getSearchResults();
                                 <div class=\"col-lg-6\">
 
                                     <div class=\"pull-left\"> 
-
-                                        <p>  {$searchResult->getTitle()} </p>
-                                        <p>  {$searchResult->getKeywords()} </p>
+										<div class=\"exoa\">
+                                        <h2>  {$searchResult->getTitle()} </h2>
+										<hr></hr>
+                                        <p> <span class=\"glyphicon glyphicon-asterisk\"></span> {$searchResult->getKeywords()} </p>
                                         <p>  {$searchResult->getDescription()} </p>
-                                        <p>  {$searchResult->getCoordinator()} </p>
-
+										
+                                        <p> <span class=\"glyphicon glyphicon-user\"></span> {$searchResult->getCoordinator()} </p>
+										
+										</div>
                                     </div>
                                 </div>";
 

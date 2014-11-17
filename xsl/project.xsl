@@ -21,15 +21,21 @@
                 <xsl:for-each select="projects/project">
                         <li>
                             <xsl:variable name="projectId" select="id"/>
-                            <xsl:value-of select="coordinator"/>
-                            <xsl:value-of select="title"/>
+                           
+                           <h3> <xsl:value-of select="title"/> </h3>
+						    <span class="glyphicon glyphicon-info-sign"></span>	
                             <xsl:value-of select="description"/>
                             <xsl:for-each select="keyword">
                                 <xsl:value-of select="."/>
                             </xsl:for-each>
+								<br></br>
+							<span class="glyphicon glyphicon-user"></span>
+							<xsl:value-of select="coordinator"/>
+							<br></br>
+							
                             <div class="pull-left">
-                            Student accepted: <xsl:value-of select="numberOfStudent"/>/
-                            <xsl:value-of select="maxNumberOfStudent"/>
+                            Student accepted: <xsl:value-of select="numberOfStudent"/>/ 
+                            <xsl:value-of select="maxNumberOfStudent"/><span> | </span>
                             Student interested: <xsl:value-of select="numberOfApplication"/>
                             <div>
                                 <xsl:if test="studentsInvolved">
@@ -42,7 +48,7 @@
                                 <xsl:if test="studentData">                                
                                     <xsl:value-of select="studentData/studentMessage"/>
                                     <xsl:if test="studentData/available">
-                                        <a class="ajax-link"  href="apply.php?projectId={$projectId}">apply</a>
+                                        <a class="btn btn-success ajax-link"  href="apply.php?projectId={$projectId}">Apply</a>
                                     </xsl:if>
                                 </xsl:if>
                             </div>
@@ -72,7 +78,7 @@
                 </xsl:for-each>
                 </ul>
             </div>
-           
+           <br> </br>
             </div> 
 			 <a class="btn btn-primary" href="projects.php"> BACK </a>
 			</div>

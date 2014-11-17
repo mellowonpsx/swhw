@@ -23,12 +23,12 @@
     <project>
         <id>2</id>
         <title>Best Project Ever</title>
-        <description>We are gonna make a lot of money with this project.</description>
-        <keyword>Money</keyword>
+        <description>We are gonna make a lot of money with this project.We are gonna make a lot of money with this project.</description>
+        <keyword>X</keyword>
         <keyword>A lot of</keyword>
         <keyword>Money</keyword>
         <maxNumberOfStudent>1</maxNumberOfStudent>
-        <coordinatorId>5</coordinatorId>
+        <coordinatorId>0</coordinatorId>
     </project>
 </projects>
 

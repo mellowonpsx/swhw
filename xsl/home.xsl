@@ -27,9 +27,9 @@
                 <xsl:for-each select="notifications/notification">
                     <li>
                         <xsl:variable name="notificationId" select="id"/>
-                        <xsl:value-of select="message"/> 
-						<a class="ajax-link" href="readedNotification.php?id={$notificationId}" > readed </a>
-                    </li>
+                        <xsl:value-of select="message"/> <span> - </span>
+						<a class="btn btn-danger btn-xs ajax-link" href="readedNotification.php?id={$notificationId}" > close </a> 
+                    </li><br></br>
                 </xsl:for-each>
                 </ul>
 				</div>
@@ -49,19 +49,20 @@
                     <li>
                     
                         <xsl:variable name="projectId" select="id"/> 
-                        <xsl:value-of select="coordinator"/>
+                        
                         <xsl:value-of select="title"/>
-                        <xsl:value-of select="description"/>
+                        
                         
                         <xsl:for-each select="keyword">
                         <xsl:value-of select="."/> 
                         </xsl:for-each>
-             
+						<xsl:value-of select="description"/>
+						<xsl:value-of select="coordinator"/>
                         
                         Student accepted: <xsl:value-of select="numberOfStudent"/>/
-                        <xsl:value-of select="maxNumberOfStudent"/>
+                        <xsl:value-of select="maxNumberOfStudent"/> 
                         Student interested: <xsl:value-of select="numberOfApplication"/>
-                        <a href="showProject.php?id={$projectId}"> show project </a>
+                        <a class="btn btn-warning" href="showProject.php?id={$projectId}"> show project </a>
                     
                     </li>
                 </xsl:for-each>
@@ -74,16 +75,20 @@
                 <xsl:for-each select="studentApplications/project">
                     <li>
                         <xsl:variable name="projectId" select="id"/>
-                        <xsl:value-of select="coordinator"/>
+                        
                         <xsl:value-of select="title"/>
-                        <xsl:value-of select="description"/>
-                        <xsl:for-each select="keyword">
+						<br></br>
+						<xsl:for-each select="keyword">
                             <xsl:value-of select="."/>
                         </xsl:for-each>
+						<br></br>
+						<xsl:value-of select="description"/>
+						<xsl:value-of select="coordinator"/>
+						<br></br>
                         Student accepted: <xsl:value-of select="numberOfStudent"/>/
-                        <xsl:value-of select="maxNumberOfStudent"/>
-                        Student interested: <xsl:value-of select="numberOfApplication"/>
-                        <a href="showProject.php?id={$projectId}"> show project </a>
+                        <xsl:value-of select="maxNumberOfStudent"/> <span> | </span>
+                        Student interested: <xsl:value-of select="numberOfApplication"/> <br></br>
+                        <a class="btn btn-info" href="showProject.php?id={$projectId}"> Show project </a>
                     </li> 
                 </xsl:for-each>
                 </ul>

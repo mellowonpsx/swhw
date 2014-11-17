@@ -236,7 +236,22 @@ bt {
 
 /* glyphicon Configuration */
 
-.glyphicon {
+.glyphiconA {
 	font-size: 40px;
 	color: #fcb731;
+}
+
+.exoa{
+min-width:450px;
+display: block;
+padding: 9.5px;
+margin: 0px 0px 10px;
+font-size: 13px;
+line-height: 1.42857;
+word-break: break-all;
+word-wrap: break-word;
+color: #333;
+background-color: #F5F5F5;
+border: 1px solid #CCC;
+border-radius: 4px;
 }
