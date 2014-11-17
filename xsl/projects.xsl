@@ -14,7 +14,7 @@
                             <h4>Projects</h4>
                             <hr />
                         </div>
-                    </div>      
+                    </div>
                 </div>
                 <xsl:variable name="htmlSearch" select="document('search.xsl')"/>
                 <xsl:copy-of select="$htmlSearch"/>

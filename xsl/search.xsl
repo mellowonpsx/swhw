@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <div id="serach-area" >
-    <form action="search.php" method="post">
-        Enter a search keyword:
-        <input type="text" name="SearchProject" />
+    <form action="searchResults.php" method="get">
+        <input type="text" name="searchArea" />
         <input type="submit" value="Search"/> 
     </form>
 </div>

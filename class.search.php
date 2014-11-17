@@ -11,8 +11,6 @@
  *
  * @author Vlad
  */
-//include './Model/SearchResult.php';
-//include './class.user.php';
 
 class Search {
 
@@ -47,8 +45,8 @@ class Search {
 
 
             $resultName = $project->title;
-            $urlForProjects = "--Project--"; // TODO TEMPORARY --- it should be initialized in constants.php
-            $url = $urlForProjects + "/" + $project->id;
+            $urlForProjects = Constants::$PAGE_SHOW_PROJECT;  //"--Project--"; // DONE TEMPORARY --- it should be initialized in constants.php
+            $url = $urlForProjects . "?id=" . $project->id;
 
 
             $searchResult = new SearchResult($resultName, $url);
@@ -92,6 +90,8 @@ class Search {
 
                 //Searching through project DESCRIPTION
                 $this->searchThroughArrayOfKeyWords($descriptionAsArrayOfStrings, $searchItem, $searchResult, $hits);
+            
+                
             }//end of itterating through search items
 
             $hits = array_unique($hits);
