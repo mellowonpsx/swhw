@@ -43,6 +43,18 @@ foreach($project->keyword as $keyword)
 $stringData .= "<numberOfStudent>".Projects::projectUsedSpot($project->id)."</numberOfStudent>\n";
 $stringData .= "<maxNumberOfStudent>".$project->maxNumberOfStudent."</maxNumberOfStudent>\n";
 $stringData .= "<numberOfApplication>".Applications::numberApplication($project->id)."</numberOfApplication>\n";
+$studentsInvolved = Projects::listStudentInvolved($project->id);
+if(sizeOf($studentsInvolved))
+{
+    $stringData .="<studentsInvolved>";
+    foreach($studentsInvolved as $studentInvolved)
+    {
+        $stringData .="<student>";
+        $stringData .= "<studentName>".$studentInvolved->lastName.", ".$studentInvolved->firstName."</studentName>";
+        $stringData .="</student>";
+    }
+    $stringData .="</studentsInvolved>";
+}
 if(!User::isStudent($user->getId()))
 {
     $stringData .="<applications>";

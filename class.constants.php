@@ -38,6 +38,7 @@ class Constants
     //public static $XSLT_COORDINATOR_HOME = "xsl/coordinatorHome.xsl";
     
     public static $PAGE_LOGIN_HTML = "login.html";
+    public static $PAGE_ABOUT_HTML = "about.html";
     public static $PAGE_INDEX_HTML = "index.html";
     public static $PAGE_PROJECT_HTML = "projects.html";
     /*

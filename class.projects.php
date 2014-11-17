@@ -44,6 +44,14 @@ class Projects
         return $projectsCoordinated;
     }
     
+    public static function listStudentInvolved($projectId)
+    {
+        //$usersDB = simplexml_load_file(Constants::$USERS_FILENAME);
+        global $usersDB;
+        $projectUsers = $usersDB->xpath('/users/user[projectId="'.$projectId.'"]');
+        return $projectUsers;
+    }
+    
     public static function projectUsedSpot($projectId)
     {
         //$usersDB = simplexml_load_file(Constants::$USERS_FILENAME);

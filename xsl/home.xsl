@@ -2,48 +2,11 @@
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:template match="/data">
     <html lang="en">
-        <head>
-        <meta charset="utf-8" />
-                <meta name="viewport"    content="width=device-width, initial-scale=1.0" />
-                <title> Home page</title>
-                <link rel="shortcut icon" href="assets/images/pic.png" />
-                <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-                <link rel="stylesheet" href="assets/css/main.css" />
-                <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-                <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css' />    
-				
-				
-				 <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
-
-          
-        </head>
+        <xsl:variable name="htmlHead" select="document('head.xsl')"/>
+        <xsl:copy-of select="$htmlHead"/>
         <body>
-        
-     <div class="navbar navbar-inverse navbar-static-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="home.php">Bachelor</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <ul class="nav navbar-nav navbar-right">
-            
-            <li><a href="projects.php">Projects</a></li>
-            <li><a href="about.html">About</a></li>
-
-            <li><a href="logout.php">Logout</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
-    </div>
-    
-    
-    
-    
+        <xsl:variable name="htmlHeader" select="document('header.xsl')"/>
+        <xsl:copy-of select="$htmlHeader"/>
         <div class="container pt">
 		<div class="row">	
             
@@ -74,14 +37,8 @@
             </xsl:if>
             
             
-            <div id="search-area">
-               <form action="">
-                    Enter a search keyword:
-                  <input type="text" name="SearchProject" />
-                  <input type="submit" value="Search"/> 
-                </form>
-    
-            </div>
+           <xsl:variable name="htmlSearch" select="document('search.xsl')"/>
+           <xsl:copy-of select="$htmlSearch"/>
             
             
             <!-- in student home page we show personal project, if exist, or applications -->
@@ -158,80 +115,10 @@
             
                 </div> 
          
-             </div> </div> 
-            
-            
-            
-            
-            
-            
-      <div id="footer">
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-4">
-					<h4>Address</h4>
-					<p>
-						Some Address 987,<br/>
-						+34 9054 5455, <br/>
-						Madrid, Spain.
-					</p>
-				</div><!-- /col-lg-4 -->
-				
-				<div class="col-lg-4">
-					<h4>My Links</h4>
-					<p>
-						<a href="#">Dribbble</a><br/>
-						<a href="#">Twitter</a><br/>
-						<a href="#">Facebook</a>
-					</p>
-				</div><!-- /col-lg-4 -->
-				
-				<div class="col-lg-4">
-					<h4>About Bachelor</h4>
-					<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-				</div><!-- /col-lg-4 -->
-			
-			</div>
-		
-		</div>
-	</div>
-    
-
-	
-	
-				<script>
-			$("a.ajax-link").click(function( event )
-					{
-						event.preventDefault();
-						self = jQuery(this);
-						href = self.attr('href');
-						//id = self.attr('id');
-						throwAjax(href);
-					});
-					
-			function throwAjax(link)
-				{
-					$.ajax({
-							url: link,
-							dataType: "xml",
-							type: "GET",
-							success: function(data)
-							{
-								//$("#"+id+"").hide(500);
-								$('a.ajax-link[href="'+link+'"]').parent().hide();
-								
-								console.log(data);
-								
-							},
-							error: function(data)
-							{
-								console.log(data);
-							}
-					});
-				}
-			</script>
-
+             </div> </div>      
+        <xsl:variable name="htmlFooter" select="document('footer.xsl')"/>
+        <xsl:copy-of select="$htmlFooter"/>
         </body>
     </html>
-    </xsl:template>                         
+    </xsl:template>
 </xsl:stylesheet>
