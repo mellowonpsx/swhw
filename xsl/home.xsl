@@ -46,25 +46,36 @@
             <div id="student-project-area">
                 <ul>
                 <xsl:for-each select="studentProject/project">
-                    <li>
+                    <div>
                     
-                        <xsl:variable name="projectId" select="id"/> 
-                        
-                        <xsl:value-of select="title"/>
-                        
-                        
-                        <xsl:for-each select="keyword">
-                        <xsl:value-of select="."/> 
-                        </xsl:for-each>
-						<xsl:value-of select="description"/>
-						<xsl:value-of select="coordinator"/>
-                        
-                        Student accepted: <xsl:value-of select="numberOfStudent"/>/
-                        <xsl:value-of select="maxNumberOfStudent"/> 
+                        <xsl:variable name="projectId" select="id"/>
+							<h3> <xsl:value-of select="title"/> </h3>
+							<h4>
+								<span class="glyphicon glyphicon-user space-right"></span>
+								<xsl:value-of select="coordinator"/>
+							</h4>
+							<h6>								  
+                            <xsl:for-each select="keyword">
+                                <span class="space-right">&#35;<xsl:value-of select="."/></span>
+                            </xsl:for-each>
+							</h6>
+
+							<div>
+								<p>
+								<xsl:value-of select="description"/>
+								</p>
+							</div>
+                        <p>
+						  <span class="glyphicon glyphicon-info-sign space-right"></span>
+                        Student accepted: <xsl:value-of select="numberOfStudent"/>/<xsl:value-of select="maxNumberOfStudent"/> 
+						</p>
+						<p>
+						 <span class="glyphicon glyphicon-info-sign space-right"></span>
                         Student interested: <xsl:value-of select="numberOfApplication"/>
-                        <a class="btn btn-warning" href="showProject.php?id={$projectId}"> show project </a>
+						</p>
+                        <a class="btn btn-info" href="showProject.php?id={$projectId}"> Show project </a>
                     
-                    </li>
+                    </div>
                 </xsl:for-each>
                 </ul>
             </div>
@@ -73,23 +84,34 @@
             <div id="student-application-area">
                 <ul>
                 <xsl:for-each select="studentApplications/project">
-                    <li>
+                    <div>
                         <xsl:variable name="projectId" select="id"/>
-                        
-                        <xsl:value-of select="title"/>
+							<h3> <xsl:value-of select="title"/> </h3>
+							<h4>
+								<span class="glyphicon glyphicon-user space-right"></span>
+								<xsl:value-of select="coordinator"/>
+							</h4>
+							<h6>								  
+                            <xsl:for-each select="keyword">
+                                <span class="space-right">&#35;<xsl:value-of select="."/></span>
+                            </xsl:for-each>
+							</h6>
+
+							<div>
+								<p>
+								<xsl:value-of select="description"/>
+								</p>
+							</div>
 						<br></br>
-						<xsl:for-each select="keyword">
-                            <xsl:value-of select="."/>
-                        </xsl:for-each>
-						<br></br>
-						<xsl:value-of select="description"/>
-						<xsl:value-of select="coordinator"/>
-						<br></br>
-                        Student accepted: <xsl:value-of select="numberOfStudent"/>/
-                        <xsl:value-of select="maxNumberOfStudent"/> <span> | </span>
-                        Student interested: <xsl:value-of select="numberOfApplication"/> <br></br>
-                        <a class="btn btn-info" href="showProject.php?id={$projectId}"> Show project </a>
-                    </li> 
+						<p>
+						  <span class="glyphicon glyphicon-info-sign space-right"></span>
+                        Student accepted: <xsl:value-of select="numberOfStudent"/>/<xsl:value-of select="maxNumberOfStudent"/>
+						</p>
+						<p>
+                        Student interested: <xsl:value-of select="numberOfApplication"/> 
+						</p>
+                        <a class="btn btn-danger" href="showProject.php?id={$projectId}"> Show project </a>
+                    </div> 
                 </xsl:for-each>
                 </ul>
             </div>
@@ -99,18 +121,38 @@
             <div id="professor-project-area">
                 <ul>
                 <xsl:for-each select="projects/project">
-                    <li>
+                    <div>
                         <xsl:variable name="projectId" select="id"/>
-                        <xsl:value-of select="title"/>
-                        <xsl:value-of select="description"/>
-                        <xsl:for-each select="keyword">
-                            <xsl:value-of select="."/>
-                        </xsl:for-each>
-                        Student accepted: <xsl:value-of select="numberOfStudent"/>/
-                        <xsl:value-of select="maxNumberOfStudent"/>
-                        Student interested: <xsl:value-of select="numberOfApplication"/>
-                        <a href="showProject.php?id={$projectId}"> show project </a> 
-                    </li>
+							<h3> 
+							<xsl:value-of select="title"/> 
+							</h3>
+							<h4>
+								<span class="glyphicon glyphicon-user space-right"></span>
+								<xsl:value-of select="coordinator"/>
+							</h4>
+							<h6>								  
+                            <xsl:for-each select="keyword">
+                                <span class="space-right">&#35;<xsl:value-of select="."/></span>
+                            </xsl:for-each>
+							</h6>
+
+							<div>
+								<p>
+								<xsl:value-of select="description"/>
+								</p>
+							</div>
+						
+						
+						<p>
+						  <span class="glyphicon glyphicon-info-sign space-right"></span>
+                        Student accepted: <xsl:value-of select="numberOfStudent"/>/<xsl:value-of select="maxNumberOfStudent"/>
+						</p>
+						 <p>
+						  <span class="glyphicon glyphicon-info-sign space-right"></span>
+                        Student interested: <xsl:value-of select="numberOfApplication"/> </p>
+                        <a class="btn btn-info" href="showProject.php?id={$projectId}"> show project </a> 
+						<hr></hr>
+                    </div>
                 </xsl:for-each>
                 </ul>
             </div>

@@ -81,9 +81,9 @@ $searchResults = $search->getSearchResults();
 			
 			
 			
-				<h4>Search Results</h4>
+				<h2>Search results</h2>
 				<hr></hr>
-				<p>Description of search process </p>
+				
 			</div><!-- /colg-lg-6 -->
          
 		
@@ -102,14 +102,18 @@ $searchResults = $search->getSearchResults();
                 $searchResultTemplate = "
                                 <div class=\"col-lg-6\">
 
-                                    <div class=\"pull-left\"> 
+                                    <div class=\"\"> 
 										<div class=\"exoa\">
-                                        <h2><a href = \"{$searchResult->getUrl()}\" >  {$searchResult->getTitle()} </a> </h2>
+                                        <h3><a href = \"{$searchResult->getUrl()}\" >  {$searchResult->getTitle()} </a> </h3>
 										<hr></hr>
-                                        <p> <span class=\"glyphicon glyphicon-asterisk\"></span> {$searchResult->getKeywords()} </p>
+									    <h4> 
+										<span class=\"glyphicon glyphicon-user\"></span> {$searchResult->getCoordinator()}
+										</h4>
+										
+                                        <p>  <span class=\"space-right\">&#35;</span> {$searchResult->getKeywords()} </p>
                                         <p>  {$searchResult->getDescription()} </p>
 										
-                                        <p> <span class=\"glyphicon glyphicon-user\"></span> {$searchResult->getCoordinator()} </p>
+                                    
 										
 										</div>
                                     </div>

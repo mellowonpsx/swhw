@@ -11,7 +11,7 @@
                 <div class="row">
                     <div class="row mt">
 			<div class="col-lg-12">
-                            <h4>Projects</h4>
+                            <h1>Projects</h1>
                             <hr />
                         </div>
                     </div>
@@ -27,36 +27,49 @@
 				
                 <div id="research-result">
 						
-                    <ul class="pull-left">
+                    <ul class="">
 					
                     <xsl:for-each select="projects/project">
-                        <li>
+                        <div>
 							
                             <xsl:variable name="projectId" select="id"/>
-							<h3> <xsl:value-of select="title"/> </h3>
-							<br></br>
-							 <span class="glyphicon glyphicon-info-sign"></span>	
-							<xsl:value-of select="description"/>
-							<br></br>
-							 <span class="glyphicon glyphicon-asterisk"></span>		
-						    <xsl:for-each select="keyword">
-                            <xsl:value-of select="."/>
+                           
+                           <h3> <xsl:value-of select="title"/> </h3>
+							<h4>
+								<span class="glyphicon glyphicon-user space-right"></span>
+								<xsl:value-of select="coordinator"/>
+							</h4>
+							<h6>								  
+                            <xsl:for-each select="keyword">
+                                <span class="space-right">&#35;<xsl:value-of select="."/></span>
                             </xsl:for-each>
-							<br></br>
-							<span class="glyphicon glyphicon-user"></span>
-                            <xsl:value-of select="coordinator"/>
+							</h6>
+
+							<div>
+								<p>
+								<xsl:value-of select="description"/>
+								</p>
+							</div>
                            
                            
-                           
-							<br></br>
-							
-                            Student accepted: <xsl:value-of select="numberOfStudent"/>/
-                            <xsl:value-of select="maxNumberOfStudent"/> <span> | </span>
+							<p>
+							<span class="glyphicon glyphicon-info-sign space-right"></span>
+                            Student accepted: <xsl:value-of select="numberOfStudent"/>/ <xsl:value-of select="maxNumberOfStudent"/> 
+							</p>
+							<p>
+							<span class="glyphicon glyphicon-info-sign space-right"></span>
                             Student interested: <xsl:value-of select="numberOfApplication"/>
-							<br></br>
-                            <a class="btn btn-info" href="showProject.php?id={$projectId}"> show project </a>
+							</p>
+							<div>
+                            <a class="btn btn-info space-right" href="showProject.php?id={$projectId}"> Show project </a>
+							
+							
+							
+							</div>
+						
+							
 							<hr></hr>
-                        </li>
+                        </div>
                     </xsl:for-each>
 					
                     </ul>
