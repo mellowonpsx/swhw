@@ -90,7 +90,11 @@ $searchResults = $search->getSearchResults();
 		</div><!-- /row -->
             
 <?php
-if(!empty($searchResults)){
+
+        //var_dump($searchResults);
+        
+        
+        if(!empty($searchResults)){
             foreach ($searchResults as $searchResult) {
     
                 
@@ -116,7 +120,10 @@ if(!empty($searchResults)){
                                         
             }// end of foreach
 }//end of if
-
+        else{
+            echo '<h2>Sorry, no results found!</h2>';
+    
+        }
 ?>
 			<!--
 			<div class="col-lg-4">
