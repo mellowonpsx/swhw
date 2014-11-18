@@ -90,6 +90,7 @@ $searchResults = $search->getSearchResults();
 		</div><!-- /row -->
             
 <?php
+if(!empty($searchResults)){
             foreach ($searchResults as $searchResult) {
     
                 
@@ -99,7 +100,7 @@ $searchResults = $search->getSearchResults();
 
                                     <div class=\"pull-left\"> 
 										<div class=\"exoa\">
-                                        <h2>  {$searchResult->getTitle()} </h2>
+                                        <h2><a href = \"{$searchResult->getUrl()}\" >  {$searchResult->getTitle()} </a> </h2>
 										<hr></hr>
                                         <p> <span class=\"glyphicon glyphicon-asterisk\"></span> {$searchResult->getKeywords()} </p>
                                         <p>  {$searchResult->getDescription()} </p>
@@ -114,6 +115,7 @@ $searchResults = $search->getSearchResults();
                 echo $searchResultTemplate;
                                         
             }// end of foreach
+}//end of if
 
 ?>
 			<!--
