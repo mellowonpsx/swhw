@@ -98,6 +98,9 @@ $searchResults = $search->getSearchResults();
             foreach ($searchResults as $searchResult) {
     
                 
+                $keywords = "#".$searchResult->getKeywords();
+                $keywords = trim($keywords);
+                $keywords = str_replace(" "," #","$keywords");
 
                 $searchResultTemplate = "
                                 <div class=\"col-lg-6\">
@@ -110,7 +113,7 @@ $searchResults = $search->getSearchResults();
 										<span class=\"glyphicon glyphicon-user\"></span> {$searchResult->getCoordinator()}
 										</h4>
 										
-                                        <p>  <span class=\"space-right\">&#35;</span> {$searchResult->getKeywords()} </p>
+                                        <p>  <span class=\"space-right\"> </span> {$keywords} </p>
                                         <p>  {$searchResult->getDescription()} </p>
 										
                                     
