@@ -31,7 +31,7 @@ if(User::isStudent($user->getId()))
         $stringData .= "<id>".$studentProject->id."</id>\n";
         //show more information about coordinator?
         $coordinator = User::getUserById($studentProject->coordinatorId);
-        $stringData .= "<coordinator>".$coordinator->lastName."</coordinator>\n";
+        $stringData .= "<coordinator>".$coordinator->lastName.", ".$coordinator->firstName."</coordinator>\n";
         // end show coordinator
         $stringData .= "<title>".$studentProject->title."</title>\n";
         $stringData .= "<description>".$studentProject->description."</description>\n";
@@ -57,7 +57,7 @@ if(User::isStudent($user->getId()))
             $stringData .= "<id>".$project->id."</id>\n";
             //show more information about coordinator?
             $coordinator = User::getUserById($project->coordinatorId);
-            $stringData .= "<coordinator>".$coordinator->lastName."</coordinator>\n";
+            $stringData .= "<coordinator>".$coordinator->lastName.", ".$coordinator->firstName."</coordinator>\n";
             // end show coordinator
             $stringData .= "<title>".$project->title."</title>\n";
             $stringData .= "<description>".$project->description."</description>\n";
@@ -85,6 +85,10 @@ else//!User::isStudent($user->getId()))
             $stringData .= "<project>\n";
             $stringData .= "<id>".$project->id."</id>\n";
             $stringData .= "<title>".$project->title."</title>\n";
+            //show more information about coordinator?
+            $coordinator = User::getUserById($project->coordinatorId);
+            $stringData .= "<coordinator>".$coordinator->lastName.", ".$coordinator->firstName."</coordinator>\n";
+            // end show coordinator
             $stringData .= "<description>".$project->description."</description>\n";
             foreach($project->keyword as $keyword)
             {

@@ -34,7 +34,17 @@
 							
                             <xsl:variable name="projectId" select="id"/>
                            
-                           <h3> <xsl:value-of select="title"/> </h3>
+                           <h3>
+                               <xsl:value-of select="title"/>
+                               <xsl:choose>
+                                    <xsl:when test="projectAvailable">
+                                        - AVAILABLE
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        - FULL
+                                    </xsl:otherwise>
+                               </xsl:choose>
+                           </h3>
 							<h4>
 								<span class="glyphicon glyphicon-user space-right"></span>
 								<xsl:value-of select="coordinator"/>

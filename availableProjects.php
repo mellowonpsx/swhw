@@ -40,7 +40,7 @@ if($projects)
 $stringData .= "</data>";
 //var_dump(htmlspecialchars($stringData));
 $data = simplexml_load_string($stringData);
-$xsl = simplexml_load_file(Constants::$XSLT_HOME);
+$xsl = simplexml_load_file(Constants::$XSLT_PROJECTS_LIST);
 $xslt = new XSLTProcessor;
 $xslt->importStyleSheet($xsl);
 die($xslt->transformToXML($data));

@@ -23,38 +23,54 @@
             <div class="col-lg-4">
                 <h4>About Bachelor</h4>
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p> this is a try: <a href="home.php" class="back">go to previous page!</a></p>
             </div><!-- /col-lg-4 -->
         </div>
         </div>
     </div>
     <script>
-        $("a.ajax-link").click(function( event )
+        $(document).ready(function()
         {
-            event.preventDefault();
-            self = jQuery(this);
-            href = self.attr('href');
-            //id = self.attr('id');
-            throwAjax(href);
-        });
-
-        function throwAjax(link)
-        {
-            $.ajax({
-                url: link,
-                dataType: "xml",
-                type: "GET",
-                success: function(data)
-                {
-                    $('a.ajax-link[href="'+link+'"]').parent().hide();
-                    console.log(data);
-
-                },
-                error: function(data)
-                {
-                    console.log(data);
-                }
+            $("a.ajax-link").click(function( event )
+            {
+                event.preventDefault();
+                self = jQuery(this);
+                href = self.attr('href');
+                //id = self.attr('id');
+                throwAjax(href);
+                return false;
             });
-        }
+        
+            $("a.back").click(function(event)
+            {
+                event.preventDefault();
+                history.back();
+                return false;
+            });
+
+            function throwAjax(link)
+            {
+                $.ajax({
+                    url: link,
+                    dataType: "xml",
+                    type: "GET",
+                    success: function(data)
+                    {
+                        $('a.ajax-link[href="'+link+'"]').parent().hide();
+                        console.log("OK: ");
+                        console.log(data);
+
+                    },
+                    error: function(data)
+                    {
+                        //hide also in case of error
+                        $('a.ajax-link[href="'+link+'"]').parent().hide();
+                        console.log("ERROR: ");
+                        console.log(data);
+                    }
+                });
+            }
+        });
     </script>
     <script src="assets/js/bootstrap.min.js"></script>
     </xsl:template>
