@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT projects (project) >
+<!ELEMENT project (id, title, description, keyword+, maxNumberOfStudent, coordinatorId)>
+<!ELEMENT id (#PCDATA) >
+<!ELEMENT title (#PCDATA) >
+<!ELEMENT description (#PCDATA) >
+<!ELEMENT keyword(#PCDATA) >
+<!ELEMENT maxNumberOfStudent(#PCDATA) >
+<!ELEMENT coordinatorId(#PCDATA) >
+
+
+
+
+
+
