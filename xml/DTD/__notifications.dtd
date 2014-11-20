@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT notifications (notification+) >
+<!ELEMENT notification (id, userId, message, readed) >
+<!ELEMENT id (#PCDATA) >
+<!ELEMENT userId (#PCDATA) >
+<!ELEMENT message (#PCDATA) >
+<!ELEMENT readed (#PCDATA) >
+

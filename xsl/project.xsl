@@ -26,7 +26,7 @@
 								<span class="glyphicon glyphicon-user space-right"></span>
 								<xsl:value-of select="coordinator"/>
 							</h4>
-							<h6>								  
+							<h6>
                             <xsl:for-each select="keyword">
                                 <span class="space-right">&#35;<xsl:value-of select="."/></span>
                             </xsl:for-each>
@@ -45,7 +45,7 @@
 								 <xsl:if test="studentsInvolved">
 								 <ul>
                                     <xsl:for-each select="studentsInvolved/student">
-                                        <li><xsl:value-of select="studentName"/></li>
+                                        <li class="list-unstyled"><span class="glyphicon glyphicon-user space-right"></span><xsl:value-of select="studentName"/></li>
                                     </xsl:for-each>
 								</ul>
                                 </xsl:if>
@@ -54,9 +54,11 @@
 								<span class="glyphicon glyphicon-info-sign space-right"></span>
 								Student interested: <xsl:value-of select="numberOfApplication"/>
                                 <xsl:if test="studentData"> 
-									<ul>								
+									<ul class="list-unstyled">								
 										<li>
-										<xsl:value-of select="studentData/studentMessage"/>
+                                                                                    <span class="space-right">
+                                                                                        <xsl:value-of select="studentData/studentMessage"/>
+                                                                                    </span>
 										<xsl:if test="studentData/available">
 											<a class="btn btn-success ajax-link"  href="apply.php?projectId={$projectId}">Apply</a>
 										</xsl:if>
@@ -66,9 +68,9 @@
 								<xsl:if test="applications">
 									<ul>
 									<xsl:for-each select="applications/application">
-										<li>
+										<li  class="list-unstyled">
 											<span class="space-right"> 
-												<xsl:value-of select="studentName"/> 
+												<span class="glyphicon glyphicon-user space-right"></span><xsl:value-of select="studentName"/> 
 											</span>
 											<xsl:variable name="studentId" select="studentId"/>
 											<span class="space-right">
@@ -79,6 +81,14 @@
 									</xsl:for-each>
 									</ul>
 								</xsl:if>
+                                                                <xsl:if test="keywordList">
+                                                                    <ul class="list-unstyled">
+                                                                        <xsl:variable name="keywordList" select="keywordList"/>
+                                                                        <li>
+                                                                            <a class= "" href="http://www.google.com/search?q={$keywordList}" target="_blanc">Search on google more about this topic</a>
+                                                                        </li>
+                                                                    </ul>
+                                                                </xsl:if>
 							</p>
                             </div>
                         </div>

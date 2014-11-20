@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ELEMENT users (user+) >
+<!ELEMENT user (id,email,password, firstName,lastName, type, projectId?) >
+<!ELEMENT id (#PCDATA) >
+<!ELEMENT email (#PCDATA) >
+<!ELEMENT password (#PCDATA) >
+<!ELEMENT firstName (#PCDATA) >
+<!ELEMENT lastName (#PCDATA) >
+<!ELEMENT type (#PCDATA)>
+<!ELEMENT projectId (#PCDATA)>
+
+
+
+
+
+
+

@@ -36,9 +36,15 @@ $stringData .= "<coordinator>".$coordinator->lastName.", ".$coordinator->firstNa
 // end show coordinator
 $stringData .= "<title>".$project->title."</title>\n";
 $stringData .= "<description>".$project->description."</description>\n";
+$keywordList = "";
 foreach($project->keyword as $keyword)
 {
     $stringData .= "<keyword>".$keyword."</keyword>\n";
+    $keywordList .= $keyword."+";
+}
+if(!empty($keywordList))
+{
+    $stringData .= "<keywordList>".$keywordList."</keywordList>\n";
 }
 $stringData .= "<numberOfStudent>".Projects::projectUsedSpot($project->id)."</numberOfStudent>\n";
 $stringData .= "<maxNumberOfStudent>".$project->maxNumberOfStudent."</maxNumberOfStudent>\n";
