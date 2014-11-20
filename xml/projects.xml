@@ -30,6 +30,49 @@
         <maxNumberOfStudent>1</maxNumberOfStudent>
         <coordinatorId>0</coordinatorId>
     </project>
+    
+     <project>
+        <id>3</id>
+        <title>Second Best Project Ever</title>
+        <description>We are gonna make some money with this project.</description>
+        <keyword>Money</keyword>
+        <maxNumberOfStudent>1</maxNumberOfStudent>
+        <coordinatorId>0</coordinatorId>
+    </project>
+    
+    <project>
+        <id>4</id>
+        <title>PHP Server</title>
+        <description>Create an Lightweight PHP Server Tool for Windows platforms.</description>
+        <keyword>PHP</keyword>
+        <keyword>Server</keyword>
+        <keyword>Lightweight</keyword>
+        
+        <maxNumberOfStudent>4</maxNumberOfStudent>
+        <coordinatorId>0</coordinatorId>
+    </project>
+    
+    <project>
+        <id>5</id>
+        <title>Text editor for unix systems</title>
+        <description>Create an efficient open source text editor for unix systems.</description>
+        <keyword>Editor</keyword>
+        <keyword>unix</keyword>
+        <maxNumberOfStudent>3</maxNumberOfStudent>
+        <coordinatorId>0</coordinatorId>
+    </project>
+    
+    <project>
+        <id>6</id>
+        <title>Licence project management system</title>
+        <description>Create a web application for managing licence projects.</description>
+        <keyword>applciation</keyword>
+        <keyword>project</keyword>
+        <keyword>licence</keyword>
+        <maxNumberOfStudent>3</maxNumberOfStudent>
+        <coordinatorId>0</coordinatorId>
+    </project>
+    
 </projects>
 
 

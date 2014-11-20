@@ -53,4 +53,27 @@
         <type>Coordinator</type>
         
     </user>
+    
+     <user>
+        <id>6</id>
+        <email>mike@mail.com</email>
+        <password>54a909474dc8802ce9041462d21709132cb3e933</password>
+        <firstName>Mike</firstName>
+        <lastName>Walker</lastName>
+        <type>Student</type>
+        <projectId>-1</projectId>
+    </user>
+    
+    <user>
+        <id>7</id>
+        <email>John@gmail.com</email>
+        <password>d9a23922e9028ca5c5cb798a84816691ecb04e56</password>
+        <firstName>John</firstName>
+        <lastName>Sheppard</lastName>
+        <type>Student</type>
+        <projectId>-1</projectId>
+    </user>
+    
+    
+    
 </users>
