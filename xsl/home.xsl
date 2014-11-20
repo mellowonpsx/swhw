@@ -12,7 +12,7 @@
             
             <div class="row mt">
 			<div class="col-lg-12">
-				<h4>Notifications</h4>
+                            <h2>Home</h2>
                 <hr></hr>  </div> </div>
                 	
 			
@@ -22,7 +22,8 @@
          
             <xsl:if test="notifications">
             <div id="notification-area">
-			<div class="ajax-link">
+                <h4>Notifications</h4>
+                <div class="ajax-link">
                 <ul>
                 <xsl:for-each select="notifications/notification">
                     <li>
@@ -44,6 +45,7 @@
             <!-- in student home page we show personal project, if exist, or applications -->
             <xsl:if test="studentProject">
             <div id="student-project-area">
+                <h1>Student Selected Project</h1>
                 <ul>
                 <xsl:for-each select="studentProject/project">
                     <div>
@@ -82,6 +84,7 @@
             </xsl:if>
             <xsl:if test="studentApplications">
             <div id="student-application-area">
+                <h1>Student Applications</h1>
                 <ul>
                 <xsl:for-each select="studentApplications/project">
                     <div>
@@ -119,6 +122,7 @@
             <!-- in coordinator home page we show project he coordinate -->
             <xsl:if test="projects">
             <div id="professor-project-area">
+                <h1>Professor Coordinated Project</h1>
                 <ul>
                 <xsl:for-each select="projects/project">
                     <div>
