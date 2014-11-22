@@ -13,28 +13,31 @@
 			<div class="col-lg-12">
                             <h1>Projects</h1>
                             <hr />
+							<span class="glyphicon glyphicon-ok-circle"></span>
+						    <a href="availableProjects.php"> See just the list of available projects </a>
                         </div>
                     </div>
-                </div>
+                </div></div>
+				  
                 <xsl:variable name="htmlSearch" select="document('search.xsl')"/>
                 <xsl:copy-of select="$htmlSearch"/>
-                <div>
-                     <br />
-                </div>
+				
+				<div class="container pt">
+               
 				
                 <xsl:choose>
                 <xsl:when test="projects">
 				
                 <div id="research-result">
 						
-                    <ul class="">
+                    <div>
 					
                     <xsl:for-each select="projects/project">
                         <div>
 							
                             <xsl:variable name="projectId" select="id"/>
-                           
-                           <h3>
+                         
+                            <h3>
                                <xsl:value-of select="title"/>
                                <xsl:choose>
                                     <xsl:when test="projectAvailable">
@@ -82,7 +85,7 @@
                         </div>
                     </xsl:for-each>
 					
-                    </ul>
+                    </div>
 					</div>
               
                 </xsl:when>

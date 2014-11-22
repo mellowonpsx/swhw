@@ -7,9 +7,9 @@
                 <div class="col-lg-4">
                     <h4>Address</h4>
                     <p>
-                        Some Address 987,<br/>
-                        +34 9054 5455, <br/>
-                        Madrid, Spain.
+                       Splaiul Independetei,<br/>
+                        CJ101, <br/>
+                        Bucuresti, Romania
                     </p>
                 </div><!-- /col-lg-4 -->
             <div class="col-lg-4">
