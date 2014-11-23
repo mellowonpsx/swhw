@@ -7,7 +7,7 @@
                 <div class="col-lg-4">
                     <h4>Address</h4>
                     <p>
-                       Splaiul Independetei,<br/>
+                       Splaiul Independentei,<br/>
                         CJ101, <br/>
                         Bucuresti, Romania
                     </p>

@@ -7,6 +7,8 @@
         <body>
         <xsl:variable name="htmlHeader" select="document('header.xsl')"/>
         <xsl:copy-of select="$htmlHeader"/>
+	    <xsl:variable name="htmlSearch" select="document('search.xsl')"/>
+		<xsl:copy-of select="$htmlSearch"/>
         <div class="container pt">
 		<div class="row">	
             
@@ -37,12 +39,8 @@
             </div>
             </xsl:if>
             </div>
-            </div> </div>
-			 <xsl:variable name="htmlSearch" select="document('search.xsl')"/>
-			 <xsl:copy-of select="$htmlSearch"/>
-		  
+            </div> 
 			
-			<div class="container pt">
 			<div class="row">	
             <div class="">
 		   
