@@ -24,7 +24,7 @@
         <firstName>Dragos</firstName>
         <lastName>Sogard</lastName>
         <type>Student</type>
-        <projectId>-1</projectId>
+        <projectId>0</projectId>
     </user>
     <user>
         <id>3</id>

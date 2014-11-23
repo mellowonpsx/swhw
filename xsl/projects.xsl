@@ -7,6 +7,9 @@
         <body>
             <xsl:variable name="htmlHeader" select="document('header.xsl')"/>
             <xsl:copy-of select="$htmlHeader"/>
+			<xsl:variable name="htmlSearch" select="document('search.xsl')"/>
+            <xsl:copy-of select="$htmlSearch"/>
+			
             <div class="container pt">
                 <div class="row">
                     <div class="row mt">
@@ -14,15 +17,14 @@
                             <h1>Projects</h1>
                             <hr />
 							<span class="glyphicon glyphicon-ok-circle"></span>
-						    <a href="availableProjects.php"> See just the list of available projects </a>
+						    <a href="availableProjects.php"> Show available projects </a>
                         </div>
                     </div>
-                </div></div>
+                </div>
 				  
-                <xsl:variable name="htmlSearch" select="document('search.xsl')"/>
-                <xsl:copy-of select="$htmlSearch"/>
+               
 				
-				<div class="container pt">
+			
                
 				
                 <xsl:choose>
